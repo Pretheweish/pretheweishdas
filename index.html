@@ -2,21 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pretheweish Das | Physics Student</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Pretheweish Das</h1>
-    <p>M.Sc. Student | IIT BHU | Aspiring Physics Researcher</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div id="droplet-container" aria-hidden="true"></div>
+<header>
+  <div class="logo-container">
+    <img src="logo.png" alt="Site Logo" class="logo">
+    <div>
+      <h1>Pretheweish Das</h1>
+      <p>M.Sc. Student | IIT BHU | Aspiring Physics Researcher</p>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#useful-links">Useful Links</a>
+    <a href="#my-paper">My Paper</a>
+    <a href="#contact">Contact</a>
+
+  </nav>
+  <button id="themeToggle">🌙</button>
+</header>
 
   <section id="about">
     <h2>About Me</h2>
@@ -49,6 +59,22 @@
     <p>This video shows my experimental setup for Seebeck coefficient measurements.</p>
   </section>
 
+  <section id="useful-links">
+    <h2>Useful Links</h2>
+    <ul>
+      <li><a href="https://www.iitbhu.ac.in" target="_blank">IIT BHU Official Website</a></li>
+      <li><a href="https://www.nature.com" target="_blank">nature journal</a></li>
+      <li><a href="https://arxiv.org" target="_blank">arXiv — Research Papers</a></li>
+      <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+      <li><a href="https://journals.aps.org/" target="_blank">APS Journals</a></li>
+      <li><a href="https://physicsworld.com" target="_blank">Physics World</a></li>
+    </ul>
+  </section>
+  <section id="my-paper">
+    <h2>My Paper</h2>
+    <p>Click below to open or download my research paper:</p>
+    <a href="documemt.pdf" target="_blank">📄 Document</a>
+  </section>
 
 
   <section id="contact">
@@ -57,14 +83,13 @@
   </section>
 
   <footer>
-    <p>© 2025 Pretheweish Das | Built with ❤️ using HTML & CSS</p>
+    <p>© 2025 Pretheweish Das(owner) | Built with ❤️ using HTML & CSS</p>
   </footer>
   <button id="scrollTopBtn" title="Go to top">↑</button>
   <script src="script.js"></script>
 
 </body>
 </html>
-
 
 
 
