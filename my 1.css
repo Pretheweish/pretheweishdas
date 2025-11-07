@@ -22,6 +22,14 @@ body {
 /* ================================
    FUTURISTIC ANIMATED HEADER
 ================================ */
+.header-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+
 .animated-header {
   position: relative;
   width: 100%;
@@ -954,6 +962,7 @@ dialog::backdrop{
   font-weight: bold;
   box-shadow: 0 0 15px #00eaff;
 }
+
 
 
 
