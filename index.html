@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Pretheweish</title>
+
+  <!-- Main Neon Stylesheet -->
+  <style>
+    body {
+      background: #050d1a;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #d5eaff;
+    }
+
+    /* ---- Neon Login Button (Left Fixed) ---- */
+    .login-btn {
+      position: fixed;
+      top: 45%;
+      left: 20px;
+      background: #00eaff;
+      padding: 14px 30px;
+      border-radius: 14px;
+      font-size: 20px;
+      color: #001423;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 25px #00eaff;
+    }
+    .login-btn:hover {
+      background: #00b8ff;
+      box-shadow: 0 0 35px #00eaff;
+      transform: scale(1.12);
+    }
+
+    /* ---- Neon Glass Modal ---- */
+    dialog.modal {
+      width: 420px;
+      border: none;
+      background: rgba(0, 30, 60, 0.35);
+      border-radius: 15px;
+      padding: 0;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 30px #00eaff88;
+    }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .card {
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00eaff;
+      text-shadow: 0 0 22px #00eaff;
+      margin: 0 0 25px 0;
+      font-size: 26px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px auto;
+      display: block;
+      border-radius: 10px;
+      background: #0d1f33;
+      border: 1px solid #00eaff55;
+      outline: none;
+      color: #e6f8ff;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    input:focus {
+      border-color: #00eaff;
+      box-shadow: 0 0 15px #00eaff;
+    }
+
+    /* ---- Button Row ---- */
+    .btn-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-row button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 12px;
+      background: #00eaff;
+      border: none;
+      border-radius: 10px;
+      color: #002233;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-row button:hover {
+      background: #00b8ff;
+      box-shadow: 0 0 20px #00eaff;
+      transform: scale(1.05);
+    }
+
+    .msg {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 15px;
+      color: #ff4f82;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Left fixed neon login button -->
+  <div class="login-btn" onclick="document.getElementById('authModal').showModal()">
+    Login
+  </div>
+
+  <!-- Neon Login Modal -->
+  <dialog id="authModal" class="modal">
+    <form method="dialog" class="card">
+
+      <h2>User Login</h2>
+
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+
+      <div class="btn-row">
+        <button type="button" onclick="signup()">Create</button>
+        <button type="button" onclick="login()">Login</button>
+        <button>Close</button>
+      </div>
+
+      <p id="authMsg" class="msg"></p>
+
+    </form>
+  </dialog>
+
+  <script type="module" src="supabase-config.js"></script>
+  <script type="module" src="auth.js"></script>
+
+</body>
+</html>
+
