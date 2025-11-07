@@ -1,0 +1,955 @@
+/* ================================
+   PART–1 : HEADER + FLOWER + NAVIGATION
+   CLEAN & OPTIMIZED VERSION
+================================ */
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  background-color: #0b0f19;
+  font-family: "Satisfy", Arial, sans-serif;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* ================================
+   FUTURISTIC ANIMATED HEADER
+================================ */
+.animated-header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* FIXED HEIGHT */
+  padding: 8px 25px;     /* Old: 20px 40px → huge height caused */
+
+  border-bottom: 2px solid rgba(0, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* Moving Gradient Background */
+.animated-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg,
+    #002244, #003366, #004488,
+    #0066aa, #0099cc, #00ccff);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease-in-out infinite;
+  z-index: -2;
+  opacity: 0.9;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating Glow Particles */
+.animated-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at random,
+    rgba(0,255,255,0.15) 0, transparent 70%);
+  animation: glowParticles 8s infinite ease-in-out;
+  mix-blend-mode: lighten;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+@keyframes glowParticles {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* ================================
+   HEADER CONTENT FIX
+================================ */
+
+/* Logo */
+.header-logo {
+  width: 65px;         /* Old 80px → balanced */
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 15px #00ffff;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Title */
+.header-center {
+  text-align: center;
+  flex: 1;
+}
+
+.site-title {
+  font-size: 2rem;      /* Old 2.5rem → height reduced */
+  color: #00ffff;
+  text-shadow: 0 0 25px #00ffff;
+  margin-top: 3px;
+}
+
+.site-subtitle {
+  font-size: 0.95rem;
+  color: #ffffff;
+  opacity: 0.9;
+  margin-top: -4px;
+}
+
+/* ================================
+   FLOWER FIXED (MAIN PROBLEM SOLVED)
+================================ */
+
+.flower {
+  width: 85px;          /* Old 130px → too large */
+  height: auto;
+  opacity: 0.95;
+  animation: floatFlower 4s ease-in-out infinite,
+             flowerGlow 5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.flower:hover {
+  transform: scale(1.1);
+}
+
+@keyframes floatFlower {
+  0% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+@keyframes flowerGlow {
+  0% { filter: drop-shadow(0 0 0px rgba(255,200,255,0)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255,180,255,0.8)); }
+  100% { filter: drop-shadow(0 0 0px rgba(255,200,255,0)); }
+}
+
+/* ================================
+   NAVIGATION BAR (GLASSMORPHIC)
+================================ */
+.glass-nav {
+  background: rgba(0, 10, 20, 0.9);
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.glass-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px 0;
+}
+
+.glass-nav ul li {
+  margin: 0 25px;
+}
+
+.glass-nav ul li a {
+  text-decoration: none;
+  color: #00ffff;
+  font-weight: bold;
+  transition: 0.3s;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.glass-nav ul li a:hover {
+  color: #fff;
+  text-shadow: 0 0 20px #00ffff;
+  transform: scale(1.1);
+}
+
+/* =========================================
+   PART–2 : ABOUT, RESEARCH, PROJECT SECTIONS
+   CLEAN + UNIFIED + ANIMATED
+========================================= */
+
+/* === Generic Neon Glassmorphic Section Style === */
+
+.section-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 25px;
+  padding: 55px 40px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  width: 85%;
+  margin: 70px auto;
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Unified Glow Animation for all three sections */
+.section-box::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle,
+    rgba(0, 255, 255, 0.35), transparent 70%);
+  animation: sectionGlow 6s infinite alternate ease-in-out;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+@keyframes sectionGlow {
+  0%   { transform: translate(-80px, -40px); }
+  100% { transform: translate(120px, 80px); }
+}
+
+/* === Section Headings === */
+.section-box h2 {
+  font-family: 'Satisfy', cursive;
+  font-size: 2.4rem;
+  color: #ffe100;                                     /* light mode esection er color */
+  text-shadow: 0 0 10px #00ffff, 0 0 30px #00e1ff;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Section Paragraphs === */
+.section-box p {
+  color: #d0faff;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  width: 80%;
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Images inside sections === */
+.section-box img {
+  border-radius: 20px;
+  border: 3px solid rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  width: 220px;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+#about {
+  composes: section-box;
+}
+
+#about::before {
+  left: -50px;
+  top: 30%;
+}
+
+/* =========================================
+   RESEARCH SECTION
+========================================= */
+#research {
+  composes: section-box;
+}
+
+#research ul {
+  list-style: none;
+  margin-top: 20px;
+  color: #d0faff;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+#research li {
+  margin: 10px 0;
+}
+
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+#projects {
+  composes: section-box;
+}
+
+#projects p {
+  width: 85%;
+}
+
+/* =====================================================
+   USEFUL LINKS SECTION (Unified with section-box)
+===================================================== */
+
+#useful-links {
+  position: relative;
+}
+
+#useful-links::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -70px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(0,255,255,0.35), transparent 70%);
+  animation: sectionGlow 6s infinite alternate ease-in-out;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+#useful-links h2 {
+  font-family: 'Satisfy', cursive;
+  font-size: 2.4rem;
+  color:  #ffe100;
+  text-shadow: 0 0 10px #00ffff, 0 0 30px #00e1ff;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.links-grid a {
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #00ffff;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.links-grid a:hover {
+  background: #00ffff;
+  color: #111;
+  box-shadow: 0 0 25px #00ffff, 0 0 40px #00ffff;
+  transform: translateY(-5px) scale(1.05);
+}
+
+.pdf-link {
+  color: red;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  color: black;
+}
+
+@media (max-width: 600px) {
+  #useful-links h2 {
+    font-size: 2rem;
+  }
+  .links-grid a {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE FIXES
+========================================= */
+
+@media (max-width: 600px) {
+
+  .section-box {
+    width: 92%;
+    padding: 35px 20px;
+  }
+
+  .section-box h2 {
+    font-size: 2rem;
+  }
+
+  .section-box p {
+    width: 95%;
+    font-size: 1rem;
+  }
+
+  .section-box img {
+    width: 180px;
+  }
+}
+
+/* =====================================================
+   PART–3 : BACKGROUND ANIMATION + ANNOUNCEMENT BAR
+   CLEAN • FAST • NON-CONFLICT • FULLY RESPONSIVE
+===================================================== */
+
+/* ============================
+   FULL-PAGE BACKGROUND DROPLETS
+============================ */
+#droplet-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+  background: radial-gradient(
+    ellipse at bottom,
+    #1b2735 0%,
+    #090a0f 100%
+  );
+}
+
+/* Droplet / rain lines */
+.drop {
+  position: absolute;
+  top: -15px;
+  width: 2px;
+  height: 12px;
+  background: #00bfff;
+  opacity: 0.6;
+  animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* DARK MODE raindrops */
+body.dark-mode .drop {
+  background: #f5f904;
+  box-shadow: 0 0 6px rgba(255,255,255,0.5);
+}
+
+/* ============================
+   STAR PARTICLE BACKGROUND
+============================ */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 2s infinite ease-in-out;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+/* DARK MODE star color */
+body.dark-mode .star {
+  background: #ffe680;
+  box-shadow: 0 0 6px #ffdd55;
+}
+
+/* ============================
+   ANNOUNCEMENT BAR (TICKER)
+============================ */
+.announcement-bar {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fefcfc;
+  color: #d81212;
+  font-weight: bold;
+  padding: 25px 0;                /* FIXED height */
+  border-bottom: 2px solid #444;
+  position: relative;
+  margin-top: 15px;
+}
+
+.scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  animation: scroll-left 12s linear infinite;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  color: #0936c9;
+  left: 100%;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-170%); }
+}
+
+.announcement-bar .star {
+  color: #ff2200;
+  text-shadow: 0 0 10px #5a0eb7, 0 0 20px #ffaa00;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================
+   DARK MODE ANNOUNCEMENT BAR
+============================ */
+body.dark-mode .announcement-bar {
+  background-color: #111;
+  color: #ffdd33;
+  border-bottom: 2px solid #555;
+}
+
+body.dark-mode .scroll-text {
+  color: #ffdd33;
+}
+
+body.dark-mode .announcement-bar .star {
+  color: #ffae00;
+  text-shadow: 0 0 10px #ffaa33, 0 0 25px #ff8800;
+}
+
+/* ============================
+   SCROLL BEHAVIOR IMPROVEMENT
+============================ */    
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll-to-top button inherited from Part–1 */
+
+/* =====================================================
+   PART–4 : DARK MODE • BUTTONS • FOOTER • VIDEO SECTION
+===================================================== */
+
+/* ============================
+   THEME TOGGLE BUTTON (DAY/NIGHT)
+============================ */
+#themeToggle {
+  position: fixed;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+  background: #f10303;
+  color: #1e3a8a;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s, transform 0.3s;
+  z-index: 9999;
+}
+
+#themeToggle:hover {
+  background: #47fdeb;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ============================
+   SCROLL-TO-TOP BUTTON
+============================ */
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  background-color: #1e3a8a;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #2563eb;
+  transform: scale(1.1);
+}
+
+/* Dark Mode scroll button */
+body.dark-mode #scrollTopBtn {
+  background-color: #facc15;
+  color: #222;
+}
+body.dark-mode #scrollTopBtn:hover {
+  background-color: #eab308;
+}
+
+/* ============================
+   DARK MODE GLOBAL STYLES
+============================ */
+
+body.dark-mode {
+  background-color: #faf6f9;
+  color: #333;
+}
+
+/* Header background (override animated colors) */
+body.dark-mode .animated-header::before {
+  background: linear-gradient(120deg,
+    #330000, #550000, #770000,
+    #aa2222, #cc4444, #ff6666);
+}
+
+/* Navigation link colors in dark mode */
+body.dark-mode .glass-nav ul li a {
+  color: #fff3b0;
+  text-shadow: none;
+}
+
+body.dark-mode .glass-nav ul li a:hover {
+  color: #ffffff;
+}
+
+/* Dark mode section backgrounds */
+body.dark-mode .section-box {
+  background: rgba(58, 19, 99, 0.834);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .section-box h2 {
+  color: #ffffff;                                    /* Dark mode section er color change korar jonno */ 
+  text-shadow: none;
+}
+
+body.dark-mode .section-box p {
+  color: #ffffff;                                /* section er vitorer lekhar color */
+}
+body.dark-mode #useful-links h2 {
+  color: #ffffff;                                    /* Dark mode section er color change korar jonno */ 
+  text-shadow: none;
+}
+
+/* Video cards dark mode */
+body.dark-mode .video-card {
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+body.dark-mode #videos h2 {                          /* video section er dark mode er color */
+  color: #ffffff;
+  text-shadow: none;
+}
+body.dark-mode .video-card h3 {
+  color: #feffff;
+  text-shadow: none;
+}
+body.dark-mode .video-card p {
+  color: #fcfcfc;
+}
+body.dark-mode .video-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 30px #a33faa, 0 0 50px #d400ff;
+}
+
+
+/* ============================
+   VIDEO SECTION FIXED
+============================ */
+#videos {
+  position: relative;
+}
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  z-index: 1;
+}
+
+.video-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  padding: 15px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.video-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 30px #00ffff, 0 0 50px #00ffff;
+}
+
+/* Video size clean & responsive */
+.video-card video {
+  width: 100%;
+  height: 180px;       /* Stable height */
+  border-radius: 15px;
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  object-fit: cover;
+}
+
+.video-card h3 {
+  color: #00ffff;
+  margin-top: 15px;
+}
+
+.video-card p {
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+/* Extra small screens */
+@media (max-width: 600px) {
+  #videos {
+    width: 95%;
+    padding: 30px 20px;
+  }
+  .video-card video {
+    height: 150px;
+  }
+  .video-card h3 {
+    font-size: 1.15rem;
+  }
+}
+
+
+/* ============================
+   FOOTER
+============================ */
+footer {
+  text-align: center;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  color: white;
+  padding: 22px;
+  margin-top: 50px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body.dark-mode footer {
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  color: #eee;
+}
+
+/* ===============  Neon Login: Variables  =============== */
+:root{
+  --bg-1:#07131f;
+  --panel:#0c1f33;
+  --edge:#102a44;
+  --text:#e9f7ff;
+  --muted:#9ec4d9;
+  --neon:#00eaff;
+  --neon-2:#00b8ff;
+  --danger:#ff5c8a;
+  --ok:#55ffb0;
+}
+
+/* ===============  Floating Login Button  =============== */
+.login-btn{
+  position: fixed;
+  top: 45%;
+  left: 18px;
+  z-index: 60;
+  padding: 12px 26px;
+  border-radius: 12px;
+  background: var(--neon);
+  color: #002233;
+  font-weight: 700;
+  letter-spacing:.3px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 0 0 2px #0b2b3b inset,
+              0 0 18px var(--neon), 
+              0 0 36px color-mix(in srgb, var(--neon) 50%, transparent);
+  transform: translateZ(0);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s;
+}
+.login-btn:hover{
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 0 0 2px #0b2b3b inset,
+              0 0 26px var(--neon),
+              0 0 60px color-mix(in srgb, var(--neon) 65%, transparent);
+  filter: saturate(1.1);
+}
+
+/* ===============  Dialog / Modal  =============== */
+dialog.modal{
+  width: min(92vw, 440px);
+  border: none;
+  padding: 0;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  box-shadow: 0 20px 60px rgba(0,0,0,.55),
+              0 0 40px color-mix(in srgb, var(--neon) 25%, transparent);
+  backdrop-filter: blur(14px) saturate(120%);
+  color: var(--text);
+}
+dialog::backdrop{
+  background: rgba(3,10,18,.55);
+  backdrop-filter: blur(2px);
+}
+
+/* Card content */
+.modal .card{
+  padding: 26px 24px 22px;
+}
+
+/* Title */
+.modal h2{
+  margin: 6px 0 14px;
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--neon) 70%, transparent);
+}
+
+/* Inputs */
+.modal input[type="email"],
+.modal input[type="password"]{
+  width: 100%;
+  height: 44px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  outline: none;
+  border: 1.5px solid var(--edge);
+  border-radius: 10px;
+  color: var(--text);
+  background: linear-gradient(180deg, #0b1c2e, #0a1830 60%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.02),
+              0 0 0 0 var(--neon);
+  transition: border-color .18s, box-shadow .18s;
+}
+.modal input:focus{
+  border-color: color-mix(in srgb, var(--neon) 60%, #0b2b3b);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--neon) 40%, transparent);
+}
+
+/* Buttons row */
+.btn-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* Base button */
+.btn-row button{
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing:.2px;
+  cursor: pointer;
+  color: #002233;
+  background: var(--neon);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--neon) 60%, transparent);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s;
+}
+.btn-row button:hover{
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+}
+
+/* Variants */
+.btn-row button:nth-child(1){      /* Create */
+  background: linear-gradient(180deg, var(--neon), var(--neon-2));
+}
+.btn-row button:nth-child(2){      /* Login */
+  background: linear-gradient(180deg, #55ffb0, #14d39a);
+  color: #01231b;
+}
+.btn-row button:nth-child(3){      /* Close */
+  background: linear-gradient(180deg, #7aa0b7, #4f6c82);
+  color: #071822;
+}
+
+/* Helper text */
+.msg{
+  margin-top: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Small screens */
+@media (max-width: 540px){
+  .login-btn{ left: 12px; padding: 10px 20px; }
+  .btn-row{ grid-template-columns: 1fr 1fr; }
+  .btn-row button:nth-child(3){ grid-column: span 2; }
+}
+
+/* ================================
+  Notes box
+================================ */
+
+.notes-section {
+  background: rgba(0, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 20px;
+  width: 380px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  margin-top: 30px;
+}
+
+.notes-section h3 {
+  color: #00f2ff;
+  margin-bottom: 10px;
+}
+
+#notesBox {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  resize: none;
+}
+
+#saveNotes {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #00eaff;
+  border: none;
+  border-radius: 20px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00eaff;
+}
+
+
