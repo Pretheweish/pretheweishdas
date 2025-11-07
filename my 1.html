@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pretheweish Das | Physics Student</title>
+  <link rel="stylesheet" href="my 1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- LOGIN BUTTON -->
+  <div class="login-btn" onclick="document.getElementById('authModal').showModal()">
+    Login
+   </div>
+
+  <!-- LOGIN MODAL -->
+  <dialog id="authModal" class="modal">
+    <form method="dialog" class="card">
+      <h2>User Login</h2>
+
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+
+      <div class="btn-row">
+        <button type="button" onclick="signup()">Create</button>
+        <button type="button" onclick="login()">Login</button>
+        <button>Close</button>
+      </div>
+
+      <p id="authMsg" class="msg"></p>
+    </form>
+  </dialog>
+
+  <!-- Background Animation Layer -->
+  <div id="droplet-container" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="animated-header">
+    <div class="header-left">
+      <img src="assets/images/logo3.webp" alt="Left Flower" class="flower left-flower" />
+    </div>
+
+    <div class="header-center">
+      <img src="assets/images/logo.png" alt="Logo" class="header-logo" />
+      <h1 class="site-title">Pretheweish Das</h1>
+      <p class="site-subtitle">M.Sc. Student | IIT BHU | Aspiring Physics Researcher</p>
+    </div>
+
+    <div class="header-right">
+      <img src="assets/images/sticker.webp" alt="Right Flower" class="flower right-flower" />
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="glass-nav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#videos">My Videos</a></li>
+      <li><a href="#useful-links">Useful Links</a></li>
+      <li><a href="#my-paper">My Paper</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Theme Toggle Button -->
+  <button id="themeToggle">🌙</button>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="scroll-text">
+      <span class="star">★</span>
+      Announcement: My new research paper on "Superconductivity and Heat Capacity" will be released soon!
+      <span class="star">★</span>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section-box">
+    <h2>About Me</h2>
+    <img src="assets/images/logo2.jpg" alt="Pretheweish Das" />
+    <p>
+      Hello! I am <b>Pretheweish Das</b>, currently pursuing my M.Sc. in Physics at IIT BHU.
+      My interests include quantum physics, electromagnetism, and mathematical physics.
+      I aim to become a researcher exploring the deep beauty of physical laws.
+    </p>
+  </section>
+
+  <!-- RESEARCH SECTION -->
+  <section id="research" class="section-box">
+    <h2>Research Interests</h2>
+    <ul>
+      <li>Quantum Mechanics & Quantum Field Theory</li>
+      <li>Condensed Matter & Superconductivity</li>
+      <li>Electromagnetism & Optical Phenomena</li>
+    </ul>
+  </section>
+
+  <!-- PROJECT SECTION -->
+  <section id="projects" class="section-box">
+    <h2>Projects</h2>
+    <p>
+      Coming soon — I’m currently working on experiments involving specific heat and Seebeck
+      coefficient measurements.
+    </p>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section id="videos" class="section-box">
+    <h2>My Videos</h2>
+    <div class="video-gallery">
+      <div class="video-card">
+        <video controls>
+          <source src="assets/videos/v1.mp4" type="video/mp4">
+        </video>
+        <h3>Seebeck Coefficient Experiment</h3>
+        <p>This video shows my experimental setup for Seebeck coefficient measurements.</p>
+      </div>
+
+      <div class="video-card">
+        <video controls>
+          <source src="specific_heat.mp4" type="video/mp4" />
+        </video>
+        <h3>Specific Heat Measurement</h3>
+        <p>Demonstration of low-temperature specific heat analysis using PPMS setup.</p>
+      </div>
+
+      <div class="video-card">
+        <video controls>
+          <source src="superconductivity.mp4" type="video/mp4" />
+        </video>
+        <h3>Superconductivity Visualization</h3>
+        <p>Magnetic levitation and Meissner effect demonstration in a superconducting sample.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- USEFUL LINKS SECTION -->
+  <section id="useful-links" class="section-box">
+    <h2>✨ Useful Links ✨</h2>
+    <div class="links-grid">
+      <a href="https://www.iitbhu.ac.in" target="_blank">🏛️ IIT BHU Official Website</a>
+      <a href="https://www.nature.com" target="_blank">📘 Nature Journal</a>
+      <a href="https://arxiv.org" target="_blank">📄 arXiv — Research Papers</a>
+      <a href="https://scholar.google.com" target="_blank">🔍 Google Scholar</a>
+      <a href="https://journals.aps.org/" target="_blank">📚 APS Journals</a>
+      <a href="https://physicsworld.com" target="_blank">🌎 Physics World</a>
+      <a href="https://winter.group.shef.ac.uk/orbitron/" target="_blank">🌀 Play with Atomic Orbital</a>
+    </div>
+  </section>
+
+  <!-- PAPER SECTION -->
+  <section id="my-paper" class="section-box">
+    <h2>My Paper</h2>
+    <p>Click below to open or download my research paper:</p>
+    <a href="assets/pdf/document.pdf" target="_blank" class="pdf-link">📄 Document</a>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section-box">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:druma5059@gmail.com">druma5059@gmail.com</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Pretheweish Das (owner) | Built with ❤️ using HTML & CSS</p>
+  </footer>
+
+  <!-- Scroll-to-top Button -->
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+
+  <script src="my 1.js"></script>
+  <script type="module" src="supabase-config.js"></script>
+  <script type="module" src="auth.js"></script>
+
+</body>
+</html>
