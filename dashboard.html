@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neon Dashboard | Pretheweish</title>
+
+  <!-- Neon styles (inline so it's plug-and-play) -->
+  <style>
+    :root{
+      --bg:#07131f; --panel:#0b1c2e; --edge:#11324c;
+      --text:#e9f7ff; --muted:#97bdd0; --neon:#00eaff; --ok:#10d39a; --danger:#ff5c8a;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:radial-gradient(1200px 700px at 20% -10%, #0c2338 0%, #06111c 55%, #040a12 100%), var(--bg);
+      color:var(--text); font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:22px 16px 42px}
+    .topbar{
+      display:flex;align-items:center;gap:12px;justify-content:space-between;margin-bottom:18px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      padding:10px 14px;border-radius:14px;background:#0b1e31ab;
+      box-shadow:0 0 22px rgba(0,0,0,.4), 0 0 24px rgba(0,234,255,.18) inset;
+    }
+    .brand h1{font-size:1.2rem;margin:0}
+    .pill{
+      padding:6px 10px;border:1px solid var(--edge);border-radius:999px;color:var(--muted);font-size:.85rem
+    }
+    .actions{display:flex;gap:10px}
+    .btn{
+      padding:10px 14px;border:none;border-radius:12px;font-weight:700;cursor:pointer;
+      background:linear-gradient(180deg,var(--neon),#00b8ff); color:#022234;
+      box-shadow:0 0 18px rgba(0,234,255,.45);
+    }
+    .btn.secondary{background:linear-gradient(180deg,#7aa0b7,#4f6c82);color:#071a24}
+    .btn.danger{background:linear-gradient(180deg,#ff6f9e,#ff497f);color:#260410}
+    .panel{
+      background:linear-gradient(180deg, #0a1a2b, #091629 60%);
+      border:1px solid var(--edge); border-radius:16px; padding:18px;
+      box-shadow:0 18px 60px rgba(0,0,0,.45), 0 0 40px rgba(0,234,255,.12);
+      margin-bottom:16px;
+    }
+    .panel h2{margin:0 0 12px;font-size:1.05rem;color:var(--text);text-shadow:0 0 16px rgba(0,234,255,.35)}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    @media (max-width:920px){.grid{grid-template-columns:1fr}}
+    .uploader{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    input[type="file"]{
+      padding:10px;border:1px dashed var(--edge);border-radius:12px;color:var(--muted);background:#0b1c2e;
+    }
+    .list{margin:0;padding:0;list-style:none}
+    .item{
+      display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:10px;
+      padding:10px 12px;margin:10px 0;border:1px solid var(--edge);border-radius:12px;background:#0a1c2f;
+    }
+    .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .tag{font-size:.78rem;color:#b9d9e8;background:#0e2940;border:1px solid #193a57;padding:4px 8px;border-radius:999px}
+    .muted{color:var(--muted);font-size:.9rem}
+    .empty{color:var(--muted);padding:6px 2px}
+    .footnote{margin-top:12px;color:var(--muted);font-size:.85rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00eaff" stroke-width="2"/><path d="M7 13l3 3 7-7" stroke="#00eaff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h1>Use me ❤️ Go ahead!</h1>
+          <div class="pill" id="who">Loading user…</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn secondary" onclick="goHome()">Home</button>
+        <button class="btn danger" onclick="appLogout()">Logout</button>
+      </div>
+    </div>
+    <!-- Notes Panel -->
+    <div class="panel">
+      <h2>Important Notes</h2>
+
+      <textarea id="notesBox" placeholder="Write your important notes..." 
+                style="width:100%;height:140px;padding:12px;border-radius:12px;
+                background:#0b1c2e;color:white;border:1px solid #11324c;
+                resize:none;"></textarea>
+
+      <button id="saveNotes" 
+              style="margin-top:10px;padding:10px 16px;border:none;border-radius:12px;
+              cursor:pointer;font-weight:700;background:#00eaff;color:#022234;
+              box-shadow:0 0 12px rgba(0,234,255,.4);">
+        Save Notes
+      </button>
+    </div>
+
+    <!-- main grid -->
+    <div class="grid">
+      <!-- Files panel -->
+      <div class="panel">
+        <h2>My Files</h2>
+        <ul id="fileList" class="list"></ul>
+        <div class="empty" id="emptyHint" style="display:none">No files found.</div>
+        <div class="footnote">All files are private. Links below are time-limited signed URLs.</div>
+      </div>
+
+      <!-- Upload panel -->
+      <div class="panel">
+        <h2>Upload</h2>
+        <div class="uploader">
+          <input type="file" id="pick"/>
+          <button class="btn" onclick="uploadFile()">Upload</button>
+          <span class="muted" id="status"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Notes Save & Load Script -->
+  <script>
+    const notesField = document.getElementById("notesBox");
+    const saveBtn = document.getElementById("saveNotes");
+
+    // Load saved note
+    notesField.value = localStorage.getItem("dashboard_notes") || "";
+
+    // Save note
+    saveBtn.onclick = () => {
+        localStorage.setItem("dashboard_notes", notesField.value);
+        alert("Notes Saved Successfully!");
+    };
+  </script>
+
+  <!-- Supabase & app scripts -->
+  <script type="module" src="supabase-config.js"></script>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
+
+
+  <!-- Supabase & app scripts -->
+  <script type="module" src="supabase-config.js"></script>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
+
+
