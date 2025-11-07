@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+</head>
+
+<body>
+
+  <h1>Admin Panel</h1>
+  <button onclick="appLogout()">Logout</button>
+
+  <h2>Set User Role</h2>
+  <input id="userIdField" placeholder="User UID" />
+  <select id="roleSelect">
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+  <button onclick="updateRole()">Update Role</button>
+
+  <h2>User Files</h2>
+  <input id="uidForFiles" placeholder="Enter UID">
+  <button onclick="loadFiles()">Load Files</button>
+
+  <ul id="fileList"></ul>
+
+  <script type="module" src="supabase.js"></script>
+  <script type="module">
+    import { supa } from "./supabase.js";
+
+    // verify admin
+    supa.auth.getUser().then(async ({ data }) => {
+      if (!data.user) location.href = "index.html";
+
+      const { data: profile } = await supa
+        .from("profiles")
+        .select("role")
+        .eq("id", data.user.id)
+        .single();
+
+      if (profile.role !== "admin") location.href = "dashboard.html";
+    });
+
+    // set role
+    window.updateRole = async function () {
+      const uid = document.getElementById("userIdField").value;
+      const role = document.getElementById("roleSelect").value;
+
+      await supa.from("profiles")
+        .update({ role })
+        .eq("id", uid);
+
+      alert("Role updated!");
+    };
+
+    // load files
+    window.loadFiles = async function () {
+      const uid = document.getElementById("uidForFiles").value;
+      const list = document.getElementById("fileList");
+      list.innerHTML = "";
+
+      const { data } = await supa.storage
+        .from("userfiles")
+        .list(uid + "/");
+
+      if (!data) {
+        list.innerHTML = "<i>No files</i>";
+        return;
+      }
+
+      data.forEach(file => {
+        const li = document.createElement("li");
+        li.innerText = file.name;
+        list.appendChild(li);
+      });
+    };
+
+  </script>
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
