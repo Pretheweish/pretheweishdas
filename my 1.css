@@ -791,6 +791,9 @@ body.dark-mode footer {
   top: 150px;               /* Announcement bar নিচে */
   left: 18px;
   z-index: 9999;
+/*margin-top: -60px;        /* Announcement Bar এর নিচে জায়গা */    
+/*margin-left: 20px;       /* বাম পাশে থাকবে */
+/*width: 20px; */
 
   padding: 10px 28px;
   height: 30px;
@@ -1001,6 +1004,7 @@ dialog::backdrop{
   font-weight: bold;
   box-shadow: 0 0 15px #00eaff;
 }
+
 
 
 
