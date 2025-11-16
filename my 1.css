@@ -148,7 +148,7 @@ body {
    NAVIGATION BAR (GLASSMORPHIC)
 ================================ */
 .glass-nav {
-  width: 80%;               /* always full width */
+  width: 100%;               /* always full width */
   max-width: 1200px;         /* your page main width */
   margin: 0 auto;            /* center align with header & sections */
   background: rgba(0, 10, 20, 0.9);
@@ -843,7 +843,7 @@ body.dark-mode footer {
   }
 }
 
-/* Mobile */
+/* Mobile */                     /* যখন স্ক্রিনের প্রস্থ (width) 600px বা তার কম হবে (যেমন মোবাইল ফোন, ছোট ট্যাব, ছোট ব্রাউজার উইন্ডো) */
 @media (max-width: 600px) {
   .login-btn {
     top: 120px;
@@ -1004,6 +1004,7 @@ dialog::backdrop{
   font-weight: bold;
   box-shadow: 0 0 15px #00eaff;
 }
+
 
 
 
