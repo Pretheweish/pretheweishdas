@@ -785,33 +785,71 @@ body.dark-mode footer {
   --ok:#55ffb0;
 }
 
-/* ===============  Floating Login Button  =============== */
-.login-btn{
+/* === Floating Pill Neon Login Button === */
+.login-btn {
   position: fixed;
-  top: 45%;
+  top: 150px;               /* Announcement bar নিচে */
   left: 18px;
-  z-index: 60;
-  padding: 12px 26px;
-  border-radius: 12px;
+  z-index: 9999;
+
+  padding: 10px 28px;
+  height: 30px;
+  border-radius: 30px;      /* PILL SHAPE */
   background: var(--neon);
-  color: #002233;
-  font-weight: 700;
-  letter-spacing:.3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   cursor: pointer;
   user-select: none;
-  box-shadow: 0 0 0 2px #0b2b3b inset,
-              0 0 18px var(--neon), 
-              0 0 36px color-mix(in srgb, var(--neon) 50%, transparent);
-  transform: translateZ(0);
-  transition: transform .18s ease, box-shadow .18s ease, filter .18s;
+
+  box-shadow:
+      0 0 8px var(--neon),
+      0 0 22px color-mix(in srgb, var(--neon) 60%, transparent);
+
+  animation: pillPulse 1.8s infinite ease-in-out;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.login-btn:hover{
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 0 0 2px #0b2b3b inset,
-              0 0 26px var(--neon),
-              0 0 60px color-mix(in srgb, var(--neon) 65%, transparent);
-  filter: saturate(1.1);
+
+/* Hover */
+.login-btn:hover {
+  transform: scale(1.10);
+  box-shadow:
+      0 0 12px var(--neon),
+      0 0 30px color-mix(in srgb, var(--neon) 80%, transparent);
 }
+
+/* Pulse Animation */
+@keyframes pillPulse {
+  0% {
+    box-shadow:
+        0 0 8px var(--neon),
+        0 0 20px color-mix(in srgb, var(--neon) 60%, transparent);
+  }
+  50% {
+    box-shadow:
+        0 0 14px var(--neon),
+        0 0 32px color-mix(in srgb, var(--neon) 80%, transparent);
+  }
+  100% {
+    box-shadow:
+        0 0 8px var(--neon),
+        0 0 20px color-mix(in srgb, var(--neon) 60%, transparent);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .login-btn {
+    top: 120px;
+    left: 12px;
+    height: 45px;
+    padding: 8px 22px;
+  }
+}
+
 
 /* ===============  Dialog / Modal  =============== */
 dialog.modal{
@@ -963,6 +1001,7 @@ dialog::backdrop{
   font-weight: bold;
   box-shadow: 0 0 15px #00eaff;
 }
+
 
 
 
