@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Document | Pretheweish</title>
+
+  <!-- Neon styles -->
+  <style>
+    :root{
+      --bg:#07131f; --panel:#0b1c2e; --edge:#11324c;
+      --text:#e9f7ff; --muted:#97bdd0; --neon:#00eaff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;background:radial-gradient(1200px 700px at 20% -10%, #0c2338 0%, #06111c 55%, #040a12 100%), var(--bg);
+      color:var(--text); font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    .wrap{max-width:850px;margin:0 auto;padding:26px 18px 42px}
+
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;background:#0b1e31ab;
+      border-radius:14px;margin-bottom:20px;
+      box-shadow:0 0 22px rgba(0,0,0,.4), 0 0 24px rgba(0,234,255,.18) inset;
+    }
+
+    .btn{
+      padding:10px 16px;border:none;border-radius:12px;font-weight:700;cursor:pointer;
+      background:linear-gradient(180deg,var(--neon),#00b8ff); color:#022234;
+      box-shadow:0 0 18px rgba(0,234,255,.45);
+    }
+
+    .panel{
+      background:linear-gradient(180deg, #0a1a2b, #091629 60%);
+      border:1px solid var(--edge); border-radius:16px; padding:20px;
+      box-shadow:0 18px 60px rgba(0,0,0,.45), 0 0 40px rgba(0,234,255,.12);
+      margin-bottom:16px;
+    }
+
+    input, textarea{
+      width:100%;padding:12px;background:#0b1c2e;color:white;border-radius:12px;
+      border:1px solid #11324c;font-size:1rem;
+    }
+    .plus-btn {
+  font-size: 28px;
+  font-weight: bold;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #00eaff, #00b8ff);
+  color: #022234;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
+  transition: 0.2s ease-in-out;
+  margin-bottom: 18px;
+}
+
+.plus-btn:hover {
+  transform: scale(1.09);
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.9);
+}
+
+.list-box {
+  background: #0a1c2f;
+  border: 1px solid #11324c;
+  padding: 14px;
+  border-radius: 12px;
+  margin-top: 12px;
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.15);
+}
+
+.list-title {
+  color: #00eaff;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.list-content {
+  padding: 10px;
+  background: #071a27;
+  border: 1px solid #123;
+  border-radius: 8px;
+  min-height: 80px;
+  color: white;
+}
+
+    textarea{height:220px;resize:none}
+  </style>
+</head>
+<body>
+
+  <!-- Most Top Bar -->
+  <div class="wrap">
+    <button id="plusBtn" class="plus-btn">+</button>
+
+  <div id="listsContainer"></div>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <h2 style="margin:0;">➕ Add New Document</h2>
+    <button class="btn" onclick="goBack()">⬅ Back</button>
+  </div>
+
+  <!-- Form Panel -->
+  <div class="panel">
+    <label>Document Title</label>
+    <input id="docTitle" placeholder="Enter title..."/>
+
+    <br><br>
+
+    <label>Document Content</label>
+    <textarea id="docContent" placeholder="Write your document here..."></textarea>
+
+    <br>
+
+    <button class="btn" style="margin-top:12px;font-size:1.1rem;width:150px" onclick="saveDocument()">
+      💾 Save
+    </button>
+  </div>
+    
+</div>
+
+<script>
+function goBack(){
+  window.location.href = "dashboard.html"; 
+}
+
+function saveDocument(){
+    const title = document.getElementById("docTitle").value.trim();
+    const content = document.getElementById("docContent").value.trim();
+
+    if(!title){
+        alert("Please enter a title");
+        return;
+    }
+
+    // LocalStorage fallback (works without Supabase)
+    let docs = JSON.parse(localStorage.getItem("my_docs") || "[]");
+
+    docs.push({
+        title,
+        content,
+        date: new Date().toISOString()
+    });
+
+    localStorage.setItem("my_docs", JSON.stringify(docs));
+
+    alert("Document saved!");
+
+    // Go back to dashboard
+    window.location.href = "dashboard.html";
+}
+</script>
+
+<!-- Supabase (optional) -->
+<script type="module" src="supabase-config.js"></script>
+<script type="module" src="add-document.js"></script>
+
+</body>
+</html>
+
