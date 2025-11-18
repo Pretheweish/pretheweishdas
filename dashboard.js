@@ -81,3 +81,34 @@ async function loadFiles() {
   }
 }
 
+// ===== FILE UPLOAD (From modal) =====
+async function modalUpload() {
+  const file = document.getElementById("modalFile").files[0];
+  const title = document.getElementById("modalTitle").value;
+
+  if (!file || !title) {
+    alert("Please select a file and enter a title");
+    return;
+  }
+
+  // Get user from Supabase auth
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData.user;
+
+  const filePath = `${user.id}/${Date.now()}_${file.name}`;
+
+  let { data, error } = await supabase.storage
+    .from("user-documents")
+    .upload(filePath, file);
+
+  if (error) {
+    alert("Upload failed");
+    console.error(error);
+  } else {
+    alert("Uploaded successfully!");
+    closeModal();
+  }
+}
+
+
+
