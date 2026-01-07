@@ -264,14 +264,6 @@
   text-align: center;
 }
 
-/* === TITLE === */
-.projects-title {
-  font-size: 42px;
-  color: #00ffe7;
-  text-shadow: 0 0 15px rgba(0, 255, 231, 0.8);
-  margin-bottom: 30px;
-}
-
 /* === MINDMAP === */
 .mindmap-wrapper {
   display: flex;
@@ -1088,6 +1080,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
