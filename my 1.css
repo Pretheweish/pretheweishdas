@@ -494,138 +494,181 @@
    MY PAPER AND WORK SECTION
 =========================== */
 
-/* SECTION */
+/* MAIN SECTION */
 .paper-work-section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 /* TITLE */
 .section-title {
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   color: #ffe600;
-  text-shadow: 0 0 12px #00ffd5;
-  margin-bottom: 60px;
+  text-shadow: 0 0 10px #00ffd5;
+  margin-bottom: 40px;
 }
 
 /* CONTAINER */
 .paper-work-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row;     /* ⭐ force left–right */
   justify-content: center;
   align-items: stretch;
   gap: 60px;
-  max-width: 1200px;
-  margin: auto;
 }
 
-/* BOX */
+
+/* COMMON BOX STYLE */
 .paper-work-box {
-  flex: 1;
-  padding: 35px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 255, 213, 0.35);
-  box-shadow: 0 0 25px rgba(0, 255, 213, 0.18);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  width: 45%;
+  min-width: 280px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 213, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* HOVER EFFECT */
 .paper-work-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 40px rgba(0, 255, 213, 0.45);
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0, 255, 213, 0.4);
 }
 
 /* HEADINGS */
 .paper-work-box h3 {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   color: #00ffd5;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-/* ===========================
-   TIMELINE
-=========================== */
+/* WORK LIST */
+.work-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.work-list li {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* PAPER LINK */
+.pdf-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pdf-link:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 152, 0, 0.9);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .paper-work-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .paper-work-box {
+    width: 48%;        /* better symmetry */
+    min-width: 300px;
+  }
+}
 
 .timeline {
   position: relative;
-  padding-left: 32px;
+  padding-left: 30px;
   border-left: 2px solid #00ffd5;
 }
 
 .timeline-item {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   position: relative;
 }
 
 .timeline-dot {
   position: absolute;
   left: -10px;
-  top: 8px;
+  top: 6px;
   width: 14px;
   height: 14px;
   background: #00ffd5;
   border-radius: 50%;
-  box-shadow: 0 0 12px #00ffd5;
+  box-shadow: 0 0 10px #00ffd5;
 }
 
 .timeline-content h4 {
   color: #ffe600;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .timeline-content p {
-  color: #dcdcdc;
+  color: #ddd;
   font-size: 0.95rem;
 }
 
-/* ===========================
-   PAPER CARD
-=========================== */
-
 .paper-card {
   cursor: pointer;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .paper-card img {
   width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 0 22px rgba(0,255,213,0.35);
-  transition: transform 0.35s ease;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,255,213,0.3);
+  transition: transform 0.3s ease;
 }
 
 .paper-card:hover img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .paper-card p {
-  margin-top: 12px;
-  color: #cfcfcf;
+  margin-top: 10px;
+  color: #ccc;
 }
 
-/* DOWNLOAD BUTTON */
-.pdf-link {
-  display: inline-block;
-  padding: 13px 28px;
-  font-size: 1.05rem;
-  color: #fff;
-  background: linear-gradient(135deg, #ff9800, #ff5722);
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 0 18px rgba(255, 152, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* MODAL */
+.paper-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
 }
 
-.pdf-link:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 35px rgba(255, 152, 0, 0.95);
+.modal-content {
+  background: #111;
+  padding: 30px;
+  max-width: 500px;
+  border-radius: 20px;
+  border: 1px solid #00ffd5;
+  box-shadow: 0 0 30px #00ffd5;
 }
 
-/* ===========================
-   VERTICAL DIVIDER
-=========================== */
-
+.close-btn {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ff5555;
+}
+/* VERTICAL DIVIDER */
 .vertical-divider {
   width: 3px;
   background: linear-gradient(
@@ -635,32 +678,15 @@
     #00ffd5,
     transparent
   );
-  box-shadow:
-    0 0 12px #00ffd5,
-    0 0 30px #00ffd5;
-  border-radius: 6px;
+  box-shadow: 
+    0 0 10px #00ffd5,
+    0 0 25px #00ffd5;
+  border-radius: 5px;
 }
 
-/* ===========================
-   RESPONSIVE (MOBILE)
-=========================== */
-
 @media (max-width: 768px) {
-  .paper-work-container {
-    flex-direction: column;
-    gap: 35px;
-  }
-
   .vertical-divider {
     display: none;
-  }
-
-  .section-title {
-    font-size: 2.1rem;
-  }
-
-  .paper-work-box {
-    padding: 28px;
   }
 }
 
@@ -1302,6 +1328,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
