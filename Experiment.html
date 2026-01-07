@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Laboratory Experiment Record</title>
+
+<style>
+body {
+  background: #0a0f1f;
+  color: #eaeaea;
+  font-family: Arial, sans-serif;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  color: #00ffd5;
+  margin-bottom: 20px;
+}
+
+/* SEARCH */
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+<h2>➕ Add New Experiment</h2>
+
+<form id="experimentForm">
+  <input type="text" placeholder="Experiment Name" required><br><br>
+
+  <textarea placeholder="Parameters Taken" required></textarea><br><br>
+
+  <textarea placeholder="Properties / Important Facts"></textarea><br><br>
+
+  <textarea placeholder="Result"></textarea><br><br>
+
+  <input type="text" placeholder="Image / Graph Path (files/image.png)"><br><br>
+
+  <input type="text" placeholder="File Link (files/report.pdf)"><br><br>
+
+  <textarea placeholder="Conclusion"></textarea><br><br>
+
+  <button type="submit">➕ Add Experiment</button>
+</form>
+
+<hr><br>
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #00ffd5;
+  padding: 10px;
+  vertical-align: top;
+}
+
+th {
+  background: #112240;
+  color: #ffe600;
+}
+
+tr:nth-child(even) {
+  background: #0f1a35;
+}
+
+/* IMAGE */
+.preview {
+  width: 120px;
+  border-radius: 6px;
+}
+
+/* BUTTONS */
+button {
+  padding: 8px 14px;
+  margin: 10px 5px;
+  background: #00ffd5;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #00c0a0;
+}
+
+/* PRINT MODE */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  button, #searchInput, #csvInput {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🧪 Laboratory Experiment Record</h1>
+
+<input type="text" id="searchInput" placeholder="🔍 Search experiment..." onkeyup="searchExperiment()">
+
+<input type="file" id="csvInput" accept=".csv" onchange="importCSV()">
+
+<button onclick="window.print()">🖨️ Print Report</button>
+
+<table id="experimentTable">
+<thead>
+<tr>
+  <th>No.</th>
+  <th>Experiment Name</th>
+  <th>Parameters Taken</th>
+  <th>Properties / Important Facts</th>
+  <th>Result</th>
+  <th>Graph / Image</th>
+  <th>File Link</th>
+  <th>Conclusion</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+  <td></td>
+  <td>Hall Effect</td>
+  <td>B, I, VH</td>
+  <td>Carrier concentration, sign</td>
+  <td>Hall coefficient calculated</td>
+  <td><img src="files/hall_graph.png" class="preview"></td>
+  <td><a href="files/hall.pdf">PDF</a></td>
+  <td>n-type semiconductor</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Four Probe Method</td>
+  <td>T, V, I</td>
+  <td>Resistivity vs temperature</td>
+  <td>Band gap obtained</td>
+  <td><img src="files/fourprobe.png" class="preview"></td>
+  <td><a href="files/fourprobe.xlsx">Excel</a></td>
+  <td>Semiconducting behavior</td>
+</tr>
+
+</tbody>
+</table>
+
+<script>
+/* AUTO NUMBERING */
+function autoNumber() {
+  const rows = document.querySelectorAll("#experimentTable tbody tr");
+  rows.forEach((row, index) => {
+    row.cells[0].innerText = index + 1;
+  });
+}
+autoNumber();
+
+/* SEARCH */
+function searchExperiment() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const rows = document.querySelectorAll("#experimentTable tbody tr");
+
+  rows.forEach(row => {
+    row.style.display = row.innerText.toLowerCase().includes(input) ? "" : "none";
+  });
+}
+
+/* CSV IMPORT */
+function importCSV() {
+  const file = document.getElementById("csvInput").files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const lines = e.target.result.split("\n");
+    const tbody = document.querySelector("#experimentTable tbody");
+    tbody.innerHTML = "";
+
+    lines.forEach(line => {
+      const cols = line.split(",");
+      if (cols.length >= 6) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td></td>
+          <td>${cols[0]}</td>
+          <td>${cols[1]}</td>
+          <td>${cols[2]}</td>
+          <td>${cols[3]}</td>
+          <td>${cols[4]}</td>
+          <td>${cols[5]}</td>
+          <td>${cols[6] || ""}</td>
+        `;
+        tbody.appendChild(row);
+      }
+    });
+    autoNumber();
+  };
+  reader.readAsText(file);
+}
+</script>
+
+</body>
+</html>
