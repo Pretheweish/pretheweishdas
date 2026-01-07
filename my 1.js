@@ -1,19 +1,32 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ========= MODAL ========= */
+  window.openPaperModal = function () {
+    document.getElementById("paperModal").style.display = "flex";
+  };
+
+  window.closePaperModal = function () {
+    document.getElementById("paperModal").style.display = "none";
+  };
+
+  /* ========= AOS ========= */
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  } else {
+    console.error("AOS library not loaded");
+  }
+
+});
+
+
+
+
 /* =====================================================
-   PART 1 —MODAL 
-===================================================== */
-
-function openPaperModal() {
-  document.getElementById("paperModal").style.display = "flex";
-}
-
-function closePaperModal() {
-  document.getElementById("paperModal").style.display = "none";
-}
-
-
-
-/* =====================================================
-   PART 2 — SCROLL-TO-TOP BUTTON
+   PART 1 — SCROLL-TO-TOP BUTTON
 ===================================================== */
 
 const scrollBtn = document.getElementById("scrollTopBtn");
@@ -33,9 +46,8 @@ scrollBtn.addEventListener("click", () => {
   });
 });
 
-
 /* =====================================================
-   PART 3 — THEME TOGGLE (DAY/NIGHT)
+   PART 2 — THEME TOGGLE (DAY/NIGHT)
 ===================================================== */
 
 const toggleBtn = document.getElementById("themeToggle");
@@ -61,7 +73,7 @@ toggleBtn.addEventListener("click", () => {
 
 
 /* =====================================================
-   PART 4 — BACKGROUND ANIMATION (STAR / DROPLET)
+   PART 3 — BACKGROUND ANIMATION (STAR / DROPLET)
 ===================================================== */
 
 const animationType = "droplet";      // Change: "star" or "droplet"
@@ -113,7 +125,7 @@ if (!reduceMotion) {
 
 
 /* =====================================================
-   PART 5 — ANNOUNCEMENT BAR SPEED ADJUSTMENT (OPTIONAL)
+   PART 4 — ANNOUNCEMENT BAR SPEED ADJUSTMENT (OPTIONAL)
 ===================================================== */
 
 // Smooth scrolling of ticker adjusts with screen width
@@ -135,7 +147,7 @@ updateScrollSpeed();
 window.addEventListener("resize", updateScrollSpeed);
 
 
-<script>
+
   const playlists = document.querySelectorAll('.playlist');
   playlists.forEach(pl => {
     pl.addEventListener('toggle', () => {
@@ -146,7 +158,7 @@ window.addEventListener("resize", updateScrollSpeed);
       }
     });
   });
-</script>
+
 
 
 
