@@ -161,41 +161,7 @@ window.addEventListener("resize", updateScrollSpeed);
     });
   });
 
-/* =====================================================
-   PART 6 — ANNOUNCEMENT BAR SPEED ADJUSTMENT (OPTIONAL)
-===================================================== */
 
-document.getElementById("experimentForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const inputs = this.querySelectorAll("input, textarea");
-
-  const table = document.querySelector("#experimentTable tbody");
-  const row = document.createElement("tr");
-
-  const img = inputs[4].value
-    ? `<img src="${inputs[4].value}" class="preview">`
-    : "";
-
-  const file = inputs[5].value
-    ? `<a href="${inputs[5].value}">File</a>`
-    : "";
-
-  row.innerHTML = `
-    <td></td>
-    <td>${inputs[0].value}</td>
-    <td>${inputs[1].value}</td>
-    <td>${inputs[2].value}</td>
-    <td>${inputs[3].value}</td>
-    <td>${img}</td>
-    <td>${file}</td>
-    <td>${inputs[6].value}</td>
-  `;
-
-  table.appendChild(row);
-  autoNumber();
-  this.reset();
-});
 
 
 
