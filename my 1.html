@@ -35,9 +35,9 @@
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#my-paper">My Paper</a></li>
       <li><a href="#videos">My Videos</a></li>
       <li><a href="#useful-links">Useful Links</a></li>
-      <li><a href="#my-paper">My Paper</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -199,12 +199,80 @@
   </div>
 
 </section>
+  
   <!-- PAPER SECTION -->
-  <section id="my-paper" class="section-box">
-    <h2>My Paper and work </h2>
-    <p>Click below to open or download my research paper:</p>
-    <a href="assets/pdf/document.pdf" target="_blank" class="pdf-link">📄 Document</a>
-  </section>
+<!-- PAPER & WORK SECTION -->
+<section id="my-paper" class="section-box paper-work-section">
+
+  <h2 class="section-title">My Paper and Work</h2>
+
+  <div class="paper-work-container">
+
+    <!-- LEFT : MY WORK -->
+<div class="paper-work-box right-box" data-aos="fade-left">
+
+  <h3>My Work</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Superconductivity Experiments</h4>
+        <p>Low-temperature specific heat & transport studies</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Data Analysis</h4>
+        <p>BCS fitting, nodal gap models using Python</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Numerical Simulations</h4>
+        <p>Quantum & solid-state simulations (Python/MATLAB)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vertical-divider"></div>
+
+    <!-- RIGHT : MY PAPER -->
+<div class="paper-work-box left-box" data-aos="fade-right">
+
+  <h3>My Paper</h3>
+
+  <div class="paper-card" onclick="openPaperModal()">
+    <img src="assets/img/paper-thumb.png" alt="Paper Thumbnail">
+    <p>Click to view abstract</p>
+  </div>
+
+  <a href="assets/pdf/document.pdf" target="_blank" class="pdf-link">
+    📄 Download Full Paper
+  </a>
+</div>
+
+<!-- MODAL -->
+<div id="paperModal" class="paper-modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closePaperModal()">×</span>
+    <h3>Paper Abstract</h3>
+    <p>
+      This work investigates the low-temperature electronic specific heat
+      of unconventional superconductors using various gap symmetry models.
+      Experimental data were analyzed within BCS and nodal frameworks.
+    </p>
+  </div>
+</div>
+
+
+  </div>
+</section>
 
   <!-- VIDEO SECTION -->
   <section id="videos" class="section-box">
@@ -280,6 +348,7 @@
 
 </body>
 </html>
+
 
 
 
