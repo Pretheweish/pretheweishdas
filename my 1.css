@@ -675,6 +675,27 @@ body {
   }
 }
 
+/* ===============================
+   SECTION-BOX VARIANT FIX
+   (for grid based sections)
+================================ */
+.paper-work-section.section-box {
+  overflow: visible;          /* allow grid to breathe */
+  padding: 70px 40px 80px;    /* same rhythm as others */
+}
+
+.paper-work-box {
+  background: rgba(255, 255, 255, 0.08); /* SAME AS section-box */
+}
+
+body.dark-mode .paper-work-section.section-box {
+  background: rgba(58, 19, 99, 0.834);
+}
+
+body.dark-mode .paper-work-box {
+  background: rgba(58, 19, 99, 0.55);
+}
+
 /* ======================================================== 
 USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
    Fully compatible with existing section-box system
@@ -1419,6 +1440,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
