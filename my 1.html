@@ -157,39 +157,45 @@
     </ul>
   </section>
 
-<!-- ========== CMP LAB PROJECTS SECTION ========== -->
-<section id="projects" class="cmp-section">
+<section id="cmp-org-chart" class="cmp-section">
+  <h2 class="cmp-title">CMP Laboratory – Organizational Structure</h2>
 
-  <h2 class="cmp-title">CMP LAB — Research Structure</h2>
-
-  <div class="cmp-wrapper">
-
-    <!-- SVG CONNECTORS -->
-    <svg class="cmp-lines" viewBox="0 0 1000 400" preserveAspectRatio="none">
-      <line x1="500" y1="60" x2="200" y2="200" />
-      <line x1="500" y1="60" x2="400" y2="200" />
-      <line x1="500" y1="60" x2="600" y2="200" />
-      <line x1="500" y1="60" x2="800" y2="200" />
-      <line x1="500" y1="60" x2="500" y2="200" />
-    </svg>
+  <div class="org-chart">
 
     <!-- ROOT -->
-    <div class="cmp-node cmp-root">
+    <div class="node root" data-aos="zoom-in">
       CMP Lab
     </div>
 
-    <!-- BRANCHES -->
-    <div class="cmp-branches">
+    <!-- CONNECTOR -->
+    <div class="connector"></div>
 
-      <a href="materials.html" class="cmp-node cmp-branch b1">Materials Research</a>
-      <a href="transport.html" class="cmp-node cmp-branch b2">Transport Properties</a>
-      <a href="magnetism.html" class="cmp-node cmp-branch b3">Magnetism</a>
-      <a href="superconductivity.html" class="cmp-node cmp-branch b4">Superconductivity</a>
-      <a href="thinfilm.html" class="cmp-node cmp-branch b5">Thin Film Lab</a>
+    <!-- LEVEL 1 -->
+    <div class="branches">
+
+      <a href="research.html" class="node branch research" data-aos="fade-up">
+        Research Group
+      </a>
+
+      <a href="instrumentation.html" class="node branch instrumentation" data-aos="fade-up" data-aos-delay="100">
+        Instrumentation
+      </a>
+
+      <a href="theory.html" class="node branch theory" data-aos="fade-up" data-aos-delay="200">
+        Theory & Simulation
+      </a>
+
+      <a href="students.html" class="node branch students" data-aos="fade-up" data-aos-delay="300">
+        Students
+      </a>
+
+      <a href="collaboration.html" class="node branch collaboration" data-aos="fade-up" data-aos-delay="400">
+        Collaborations
+      </a>
 
     </div>
-  </div>
 
+  </div>
 </section>
 
   <!-- PAPER SECTION -->
@@ -363,6 +369,7 @@
 
 </body>
 </html>
+
 
 
 
