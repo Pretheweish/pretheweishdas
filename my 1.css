@@ -290,7 +290,7 @@
 }
 
 /* ================================
-   CMP ORG CHART – NEON GLASS
+   Project Section
 ================================ */
 
 .cmp-section {
@@ -437,6 +437,91 @@
 .node {
   position: relative;
   z-index: 20;
+}
+/* =====================================
+   PROJECT SECTION – CMP ORG CHART
+   CLEAN & CONSISTENT WITH RESEARCH
+===================================== */
+
+/* Prevent section clipping */
+#projects {
+  overflow: visible;
+}
+
+/* Safe container */
+.cmp-safe-zone {
+  position: relative;
+  overflow: visible;
+  z-index: 5;
+}
+
+/* Org chart layout */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Root node */
+.node.root {
+  padding: 18px 40px;
+  border-radius: 16px;
+  background: rgba(0, 255, 150, 0.18);
+  color: #ffffff;
+  font-size: 1.4rem;
+  box-shadow: 0 0 30px #00ff9d;
+}
+
+/* Connector */
+.connector {
+  width: 4px;
+  height: 60px;
+  margin: 12px 0 30px;
+  background: linear-gradient(
+    to bottom,
+    #00ffd5,
+    rgba(0,255,213,0)
+  );
+}
+
+/* Branch container */
+.branches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+}
+
+/* Common node */
+.node {
+  padding: 16px 26px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.35s ease;
+}
+
+.node:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* Neon colors */
+.research        { box-shadow: 0 0 22px #ff00ff; }
+.instrumentation { box-shadow: 0 0 22px #00ffff; }
+.theory          { box-shadow: 0 0 22px #ffe600; }
+.students        { box-shadow: 0 0 22px #ff8800; }
+.collaboration   { box-shadow: 0 0 22px #7cff00; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .branches {
+    flex-direction: column;
+  }
 }
 
 /* ===========================================================
@@ -1389,6 +1474,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
