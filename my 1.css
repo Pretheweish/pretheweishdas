@@ -235,6 +235,37 @@
   top: 30%;
 }
 
+/* BADGE */
+.badge {
+  margin-left: 12px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #00ffd5, #00aaff);
+  color: #000;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(0, 255, 213, 0.6);
+}
+
+/* STUDENT BADGE VARIANT */
+.badge.student {
+  background: linear-gradient(135deg, #ffe600, #ff9f00);
+  box-shadow: 0 0 12px rgba(255, 230, 0, 0.6);
+}
+
+/* ICONS INSIDE TEXT */
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+.about-text p span,
+.about-text p emoji {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
+}
+
+
 /* ========== RESEARCH ========== */
 #research { composes: section-box; }
 
@@ -1332,6 +1363,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
