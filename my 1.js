@@ -1,5 +1,17 @@
 /* =====================================================
-   PART 1 — SCROLL-TO-TOP BUTTON
+   PART 1 — AOS (Animate On Scroll)
+===================================================== */
+<script>
+function openPaperModal() {
+  document.getElementById("paperModal").style.display = "flex";
+}
+
+function closePaperModal() {
+  document.getElementById("paperModal").style.display = "none";
+}
+</script>
+/* =====================================================
+   PART 2 — SCROLL-TO-TOP BUTTON
 ===================================================== */
 
 const scrollBtn = document.getElementById("scrollTopBtn");
@@ -21,7 +33,7 @@ scrollBtn.addEventListener("click", () => {
 
 
 /* =====================================================
-   PART 2 — THEME TOGGLE (DAY/NIGHT)
+   PART 3 — THEME TOGGLE (DAY/NIGHT)
 ===================================================== */
 
 const toggleBtn = document.getElementById("themeToggle");
@@ -47,7 +59,7 @@ toggleBtn.addEventListener("click", () => {
 
 
 /* =====================================================
-   PART 3 — BACKGROUND ANIMATION (STAR / DROPLET)
+   PART 4 — BACKGROUND ANIMATION (STAR / DROPLET)
 ===================================================== */
 
 const animationType = "droplet";      // Change: "star" or "droplet"
@@ -99,7 +111,7 @@ if (!reduceMotion) {
 
 
 /* =====================================================
-   PART 4 — ANNOUNCEMENT BAR SPEED ADJUSTMENT (OPTIONAL)
+   PART 5 — ANNOUNCEMENT BAR SPEED ADJUSTMENT (OPTIONAL)
 ===================================================== */
 
 // Smooth scrolling of ticker adjusts with screen width
@@ -119,3 +131,4 @@ function updateScrollSpeed() {
 
 updateScrollSpeed();
 window.addEventListener("resize", updateScrollSpeed);
+
