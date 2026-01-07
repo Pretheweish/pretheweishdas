@@ -288,152 +288,96 @@
   z-index: 0;
   border-radius: 50%;
 }
-/* =====================================================
-   PROJECTS SECTION — CLEAN, UNIFIED, FUTURE-PROOF
-   SVG-native, semantic, scalable
-===================================================== */
 
-/* ---------- SECTION WRAPPER ---------- */
-#projects {
-  padding-bottom: 70px;
-  position: relative;
+/* ===============================
+   CMP LAB SEMANTIC MINDMAP
+================================ */
+
+.cmp-projects {
+  padding: 80px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1b0030, #050008);
   overflow: hidden;
 }
 
-/* ---------- BACKGROUND GLOW ---------- */
-#projects::before {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  right: -70px;
-  top: 40%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 255, 255, 0.35),
-    transparent 70%
-  );
-  animation: sectionGlow 6s infinite alternate ease-in-out;
-  z-index: 0;
-  border-radius: 50%;
+/* TITLE */
+.cmp-title {
+  font-size: 2.6rem;
+  margin-bottom: 60px;
+  color: #00ffd5;
+  text-shadow: 0 0 15px #00ffd5;
 }
 
-/* ---------- HEADING ---------- */
-#projects h2 {
-  position: relative;
-  z-index: 1;
-}
-
-/* ---------- MINDMAP WRAPPER ---------- */
-#projects .mindmap-wrapper {
-  margin-top: 40px;
+/* MINDMAP CONTAINER */
+.cmp-mindmap {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* COMMON NODE STYLE */
+.cmp-node {
+  color: #fff;
+  text-decoration: none;
+  padding: 18px 32px;
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.12);
+  transition: 0.4s ease;
   position: relative;
-  z-index: 1;
 }
 
-/* ---------- SVG ---------- */
-#projects .mindmap {
-  width: 100%;
-  max-width: 1100px;
-  height: auto;
+/* ROOT */
+.cmp-root {
+  font-size: 1.6rem;
+  box-shadow: 0 0 35px #00ffd5;
+  animation: rootPulse 3s infinite;
 }
 
-/* =====================================================
-   SVG ELEMENTS
-===================================================== */
-
-/* ---------- CONNECTION LINKS ---------- */
-#projects .link {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.55);
-  stroke-width: 2;
-  stroke-linecap: round;
+/* BRANCH WRAPPER */
+.cmp-branches {
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
 
-/* ---------- NODE BASE ---------- */
-#projects .node {
-  fill: #111; /* fallback */
-  cursor: pointer;
-  stroke: rgba(255, 255, 255, 0.25);
-  stroke-width: 1.5;
-  transition:
-    transform 0.25s ease,
-    filter 0.25s ease,
-    fill 0.25s ease;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.35));
-  transform-origin: center;
+/* BRANCH */
+.cmp-branch {
+  min-width: 230px;
+  font-size: 1rem;
 }
 
-/* ---------- HOVER ---------- */
-#projects a:hover .node {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.75));
+/* COLORS */
+.b1 { box-shadow: 0 0 20px #ff4ecd; background: rgba(255, 78, 205, 0.2); }
+.b2 { box-shadow: 0 0 20px #00ffd5; background: rgba(0, 255, 213, 0.2); }
+.b3 { box-shadow: 0 0 20px #ffa500; background: rgba(255, 165, 0, 0.2); }
+.b4 { box-shadow: 0 0 20px #7cff00; background: rgba(124, 255, 0, 0.2); }
+.b5 { box-shadow: 0 0 20px #5f9cff; background: rgba(95, 156, 255, 0, 0.2); }
+
+/* HOVER */
+.cmp-branch:hover {
+  transform: translateY(-10px) scale(1.06);
+  box-shadow: 0 0 35px currentColor;
 }
 
-/* ---------- CENTER NODE ---------- */
-#projects .center-node {
-  fill: #ff9800;
-  stroke: #ffcc80;
-  stroke-width: 2;
-  filter: drop-shadow(0 0 16px rgba(255, 180, 0, 0.9));
+/* ROOT ANIMATION */
+@keyframes rootPulse {
+  0%, 100% { box-shadow: 0 0 25px #00ffd5; }
+  50% { box-shadow: 0 0 50px #00ffd5; }
 }
 
-/* ---------- NODE TEXT ---------- */
-#projects .node-text {
-  fill: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  pointer-events: none;
-  user-select: none;
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
-}
-
-/* =====================================================
-   SEMANTIC COLOR SYSTEM (WORKING)
-===================================================== */
-
-/* Deposition */
-#projects a[href*="pld"] rect { fill: #2196f3; }
-#projects a[href*="cvd"] rect { fill: #ff5722; }
-
-/* Measurement */
-#projects a[href*="seebeck"] rect { fill: #9c27b0; }
-#projects a[href*="stm"] rect { fill: #3f51b5; }
-
-/* Theory / Materials */
-#projects a[href*="superconductivity"] rect { fill: #e91e63; }
-#projects a[href*="condensed-matter"] rect { fill: #009688; }
-#projects a[href*="arc-melting"] rect { fill: #4caf50; }
-
-/* =====================================================
-   ACCESSIBILITY
-===================================================== */
-#projects a:focus-visible rect {
-  outline: none;
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
-}
-
-/* =====================================================
-   RESPONSIVE SAFETY
-===================================================== */
-@media (max-width: 900px) {
-  #projects .mindmap {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  #projects {
-    padding-bottom: 50px;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cmp-title {
+    font-size: 2.1rem;
   }
 
-  #projects .node-text {
-    font-size: 13px;
+  .cmp-branch {
+    min-width: 180px;
   }
 }
-
 
 
 /* ===========================================================
@@ -1386,6 +1330,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
