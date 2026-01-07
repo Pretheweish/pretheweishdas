@@ -241,67 +241,82 @@
 </section>
   
   <!-- PAPER SECTION -->
-<!-- PAPER & WORK SECTION -->
-<section id="my-paper" class="section-box paper-work-section">
+<!-- ===============================
+     MY PAPER & WORK SECTION
+================================= -->
+<section id="my-paper" class="paper-work-section">
 
   <h2 class="section-title">My Paper and Work</h2>
 
+  <!-- GRID CONTAINER -->
   <div class="paper-work-container">
 
     <!-- LEFT : MY WORK -->
-<div class="paper-work-box right-box" data-aos="fade-left">
+    <div class="paper-work-box" data-aos="fade-left">
 
-  <h3>My Work</h3>
+      <h3>My Work</h3>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <span class="timeline-dot"></span>
-      <div class="timeline-content">
-        <h4>CVD measurements</h4>
-        <p>Thin Film Growth Process and designing</p>
-        <button onclick="window.location.href='Experiment.html'">
-        🧪 Open Experiment Logbook
-        </button
-        
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h4>CVD measurements</h4>
+            <p>Thin Film Growth Process and designing</p>
+
+            <button
+              class="experiment-btn"
+              onclick="window.location.href='Experiment.html'">
+              🧪 Open Experiment Logbook
+            </button>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h4>Python and Data Analysis</h4>
+            <p>BCS fitting, nodal gap models using Python</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h4>Numerical Simulations and Technique</h4>
+            <p>LabView, MATLAB</p>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="timeline-item">
-      <span class="timeline-dot"></span>
-      <div class="timeline-content">
-        <h4> Python and Data Analysis</h4>
-        <p>BCS fitting, nodal gap models using Python</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <span class="timeline-dot"></span>
-      <div class="timeline-content">
-        <h4>Numerical Simulations and Technique</h4>
-        <p>LabView, MATLAB</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="vertical-divider"></div>
+    <!-- CENTER DIVIDER -->
+    <div class="vertical-divider"></div>
 
     <!-- RIGHT : MY PAPER -->
-<div class="paper-work-box left-box" data-aos="fade-right">
+    <div class="paper-work-box" data-aos="fade-right">
 
-  <h3>My Paper</h3>
+      <h3>My Paper</h3>
 
-  <div class="paper-card" onclick="openPaperModal()">
-    <img src="assets/img/paper-thumb.png" alt="Paper Thumbnail">
-    <p>Click to view abstract</p>
+      <div class="paper-card" onclick="openPaperModal()">
+        <img src="assets/img/paper-thumb.png" alt="Paper Thumbnail">
+        <p>Click to view abstract</p>
+      </div>
+
+      <a href="assets/pdf/document.pdf"
+         target="_blank"
+         class="pdf-link">
+        📄 Download Full Paper
+      </a>
+    </div>
+
   </div>
+</section>
 
-  <a href="assets/pdf/document.pdf" target="_blank" class="pdf-link">
-    📄 Download Full Paper
-  </a>
-</div>
-
-<!-- MODAL -->
+<!-- ===============================
+     PAPER MODAL (OUTSIDE GRID)
+================================= -->
 <div id="paperModal" class="paper-modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closePaperModal()">×</span>
@@ -313,10 +328,6 @@
     </p>
   </div>
 </div>
-
-
-  </div>
-</section>
 
   <!-- VIDEO SECTION -->
   <section id="videos" class="section-box">
@@ -395,6 +406,7 @@
 
 </body>
 </html>
+
 
 
 
