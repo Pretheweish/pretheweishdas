@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chemical Vapor Deposition | Lab Guide</title>
+
+<style>
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0f1a;
+  color: #eaeaea;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.8;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle at top, #1a2352, #0b0f1a);
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #00ffd5;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+section h2 {
+  color: #ffe600;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: #11162a;
+  padding: 25px;
+  border-radius: 10px;
+  margin-top: 25px;
+  border-left: 4px solid #00ffd5;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #00ffd5;
+}
+
+/* =========================
+   LISTS
+========================= */
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* =========================
+   TOGGLE BUTTON
+========================= */
+.toggle-btn {
+  margin-top: 15px;
+  background: none;
+  border: 1px solid #00ffd5;
+  color: #00ffd5;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #00ffd5;
+  color: #000;
+}
+
+/* =========================
+   HIDDEN CONTENT
+========================= */
+.hidden {
+  display: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Chemical Vapor Deposition (CVD)</h1>
+  <p>Complete laboratory guide to thin film growth</p>
+</header>
+
+<section>
+  <h2>What is Chemical Vapor Deposition?</h2>
+  <p>
+    Chemical Vapor Deposition (CVD) is a thin film deposition technique
+    in which gaseous precursor molecules undergo chemical reactions
+    on a heated substrate surface to form a solid material layer.
+  </p>
+</section>
+
+<section>
+  <h2>Why CVD is Important</h2>
+  <div class="card">
+    <ul>
+      <li>High-quality and uniform thin films</li>
+      <li>Excellent control over composition and thickness</li>
+      <li>Widely used in semiconductor and nanomaterials research</li>
+      <li>Scalable for industrial production</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Basic Principle of CVD</h2>
+  <p>
+    In a CVD process, volatile chemical precursors are transported
+    into a reaction chamber. Thermal energy or plasma activates
+    chemical reactions near the substrate surface, leading to
+    nucleation and thin film growth.
+  </p>
+</section>
+
+<section>
+  <h2>CVD System Components</h2>
+  <div class="card">
+    <ul>
+      <li>Gas sources (precursors)</li>
+      <li>Mass flow controllers</li>
+      <li>Reaction chamber</li>
+      <li>Substrate heater</li>
+      <li>Vacuum and exhaust system</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Step-by-Step CVD Process</h2>
+  <ol>
+    <li>Substrate cleaning and loading</li>
+    <li>Evacuation of the chamber</li>
+    <li>Introduction of precursor gases</li>
+    <li>Surface chemical reactions</li>
+    <li>Film growth and by-product removal</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Types of CVD</h2>
+  <div class="card">
+    <ul>
+      <li>Atmospheric Pressure CVD (APCVD)</li>
+      <li>Low Pressure CVD (LPCVD)</li>
+      <li>Plasma Enhanced CVD (PECVD)</li>
+      <li>Metal-Organic CVD (MOCVD)</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Key Process Parameters</h2>
+  <div class="card">
+    <ul>
+      <li>Substrate temperature</li>
+      <li>Chamber pressure</li>
+      <li>Gas flow rate</li>
+      <li>Reaction time</li>
+      <li>Precursor concentration</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Advantages & Limitations</h2>
+
+  <div class="card">
+    <h3>Advantages</h3>
+    <ul>
+      <li>High film purity</li>
+      <li>Excellent conformal coating</li>
+      <li>Strong film adhesion</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Limitations</h3>
+    <ul>
+      <li>High processing temperature</li>
+      <li>Hazardous precursor gases</li>
+      <li>Complex equipment</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Applications</h2>
+  <div class="card">
+    <ul>
+      <li>Semiconductor devices</li>
+      <li>Thin-film solar cells</li>
+      <li>Protective coatings</li>
+      <li>Carbon nanotubes and graphene</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Safety Considerations</h2>
+  <button class="toggle-btn" onclick="toggleSafety()">Show / Hide Safety Details</button>
+
+  <div id="safety" class="card hidden">
+    <ul>
+      <li>Use proper ventilation and exhaust systems</li>
+      <li>Handle toxic and flammable gases carefully</li>
+      <li>Wear PPE (gloves, goggles, lab coat)</li>
+      <li>Ensure temperature and pressure control</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Conclusion</h2>
+  <p>
+    Chemical Vapor Deposition is a powerful and versatile thin film
+    deposition technique. Understanding its principles, parameters,
+    and safety aspects is essential for successful laboratory
+    implementation and advanced materials research.
+  </p>
+</section>
+
+<footer>
+  © Your Laboratory | Chemical Vapor Deposition Guide
+</footer>
+
+<script>
+function toggleSafety() {
+  const safety = document.getElementById("safety");
+  safety.classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>
