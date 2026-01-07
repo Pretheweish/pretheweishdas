@@ -442,9 +442,12 @@ body {
    MAIN SECTION
 ========================================== */
 .paper-work-section {
-  padding: 80px 20px;
-  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
 }
+
 
 /* ==========================================
    SECTION TITLE
@@ -1416,6 +1419,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
