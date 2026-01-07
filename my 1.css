@@ -252,141 +252,140 @@
   margin: 10px 0;
 }
 
-/* ========== PROJECTS ========== */
-#projects { composes: section-box; }
-#projects p {
-  width: 85%;
+/* =====================================================
+   PROJECTS SECTION — CLEAN, UNIFIED, FUTURE-PROOF
+   Fully compatible with existing section-box system
+===================================================== */
+
+/* ---------- SECTION WRAPPER ---------- */
+#projects {
+  /* inherits .section-box automatically */
+  padding-bottom: 70px;
+  position: relative;
 }
 
-/* === SECTION === */
-.projects-section {
-  padding: 60px 20px;
-  text-align: center;
+/* Glow placement (unique but consistent) */
+#projects::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -70px;
+  top: 40%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.35),
+    transparent 70%
+  );
+  animation: sectionGlow 6s infinite alternate ease-in-out;
+  z-index: 0;
+  border-radius: 50%;
 }
 
-/* === MINDMAP === */
-.mindmap-wrapper {
+/* ---------- HEADING ----------
+   Uses existing .section-box h2 styling
+-------------------------------- */
+#projects h2 {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- MINDMAP CONTAINER ---------- */
+#projects .mindmap-wrapper {
+  margin-top: 35px;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
-.mindmap {
+/* ---------- SVG ---------- */
+#projects .mindmap {
   width: 100%;
   max-width: 1000px;
 }
 
-/* === LINKS (CURVES) === */
-.link {
+/* ---------- CONNECTION CURVES ---------- */
+#projects .link {
   fill: none;
-  stroke: #9fa4aa;
+  stroke: rgba(255, 255, 255, 0.65);
   stroke-width: 2;
   stroke-linecap: round;
+  transition: stroke 0.3s ease;
 }
 
-/* === NODES (BASE) === */
-.node {
+/* ---------- NODES (BASE STYLE) ---------- */
+#projects .node {
   cursor: pointer;
   transition: transform 0.25s ease, filter 0.25s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.35));
 }
 
-.node:hover {
+#projects .node:hover {
   transform: scale(1.08);
-  filter: brightness(1.2);
+  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.7));
 }
 
-/* === CENTER NODE === */
-.center-node {
+/* ---------- CENTER NODE ---------- */
+#projects .center-node {
   fill: #ff9800;
+  filter: drop-shadow(0 0 14px rgba(255, 180, 0, 0.8));
 }
 
-/* === DIFFERENT COLORS PER BOX === */
-/* LEFT SIDE */
-a[href*="quantum-mechanics"] rect {
-  fill: #2196f3; /* Blue */
-}
-
-a[href*="mathematical-physics"] rect {
-  fill: #9c27b0; /* Purple */
-}
-
-a[href*="electromagnetism"] rect {
-  fill: #3f51b5; /* Indigo */
-}
-
-/* RIGHT SIDE */
-a[href*="superconductivity"] rect {
-  fill: #e91e63; /* Pink */
-}
-
-a[href*="condensed-matter"] rect {
-  fill: #009688; /* Teal */
-}
-
-a[href*="solid-state"] rect {
-  fill: #4caf50; /* Green */
-}
-
-/* BOTTOM */
-a[href*="experiments"] rect {
-  fill: #ff5722; /* Deep Orange */
-}
-
-/* === TEXT === */
-.node-text {
+/* ---------- NODE TEXT ---------- */
+#projects .node-text {
   fill: #ffffff;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
 }
+
 /* =====================================================
-   PROJECTS SECTION FIX — MATCH OTHER SECTIONS
+   COLOR SYSTEM — SEMANTIC & EXTENSIBLE
 ===================================================== */
 
-/* Ensure Projects inherits section-box glow */
-#projects::before {
-  left: auto;
-  right: -60px;
-  top: 40%;
+/* LEFT CLUSTER */
+#projects a[href*="quantum-mechanics"] rect {
+  fill: #2196f3;
+}
+#projects a[href*="mathematical-physics"] rect {
+  fill: #9c27b0;
+}
+#projects a[href*="electromagnetism"] rect {
+  fill: #3f51b5;
 }
 
-/* Proper spacing */
-#projects {
-  padding-bottom: 70px;
+/* RIGHT CLUSTER */
+#projects a[href*="superconductivity"] rect {
+  fill: #e91e63;
+}
+#projects a[href*="condensed-matter"] rect {
+  fill: #009688;
+}
+#projects a[href*="solid-state"] rect {
+  fill: #4caf50;
 }
 
-/* Mindmap spacing */
-#projects .mindmap-wrapper {
-  margin-top: 35px;
-  position: relative;
-  z-index: 1;
+/* BOTTOM CLUSTER */
+#projects a[href*="experiments"] rect {
+  fill: #ff5722;
 }
 
-/* SVG scaling consistency */
-#projects .mindmap {
-  max-width: 1000px;
-}
-
-/* Improve curve visibility on glass background */
-#projects .link {
-  stroke: rgba(255, 255, 255, 0.65);
-}
-
-/* Slight glow on nodes to match cards */
-#projects .node {
-  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.35));
-}
-
-/* Hover glow enhancement */
-#projects .node:hover {
-  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.7));
-}
-
-/* Mobile spacing fix */
-@media (max-width: 600px) {
+/* =====================================================
+   RESPONSIVE SAFETY
+===================================================== */
+@media (max-width: 900px) {
   #projects .mindmap {
     max-width: 100%;
   }
 }
+
+@media (max-width: 600px) {
+  #projects {
+    padding-bottom: 50px;
+  }
+}
+
 
 
 /* ========== USEFUL LINKS ========== */
@@ -1129,6 +1128,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
