@@ -258,6 +258,104 @@
   width: 85%;
 }
 
+/* === GLOBAL === */
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0f3b44, #0b1320);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #ffffff;
+}
+
+/* === SECTION === */
+.projects-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* === TITLE === */
+.projects-title {
+  font-size: 42px;
+  color: #00ffe7;
+  text-shadow: 0 0 15px rgba(0, 255, 231, 0.8);
+  margin-bottom: 30px;
+}
+
+/* === MINDMAP === */
+.mindmap-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.mindmap {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* === LINKS (CURVES) === */
+.link {
+  fill: none;
+  stroke: #9fa4aa;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* === NODES (BASE) === */
+.node {
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.node:hover {
+  transform: scale(1.08);
+  filter: brightness(1.2);
+}
+
+/* === CENTER NODE === */
+.center-node {
+  fill: #ff9800;
+}
+
+/* === DIFFERENT COLORS PER BOX === */
+/* LEFT SIDE */
+a[href*="quantum-mechanics"] rect {
+  fill: #2196f3; /* Blue */
+}
+
+a[href*="mathematical-physics"] rect {
+  fill: #9c27b0; /* Purple */
+}
+
+a[href*="electromagnetism"] rect {
+  fill: #3f51b5; /* Indigo */
+}
+
+/* RIGHT SIDE */
+a[href*="superconductivity"] rect {
+  fill: #e91e63; /* Pink */
+}
+
+a[href*="condensed-matter"] rect {
+  fill: #009688; /* Teal */
+}
+
+a[href*="solid-state"] rect {
+  fill: #4caf50; /* Green */
+}
+
+/* BOTTOM */
+a[href*="experiments"] rect {
+  fill: #ff5722; /* Deep Orange */
+}
+
+/* === TEXT === */
+.node-text {
+  fill: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+
 /* ========== USEFUL LINKS ========== */
 #useful-links {
   position: relative;
@@ -998,6 +1096,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
