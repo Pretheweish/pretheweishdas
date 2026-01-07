@@ -160,52 +160,77 @@
   
 <link rel="stylesheet" href="cmp-org-chart.css">
 
-<!-- PROJECT SECTION -->
-<div id="projects">
-  <!-- CMP ORG CHART -->
-  <section id="cmp-org-chart" class="cmp-section">
-  <h2 class="cmp-title">CMP Laboratory – Organizational Structure</h2>
+<!-- =========================
+     PROJECTS SECTION
+========================= -->
+<section id="projects" class="section-box">
 
-  <div class="org-chart">
+  <h2 data-aos="fade-up">Projects</h2>
 
-    <!-- ROOT -->
-    <div class="node root" data-aos="zoom-in">
-      CMP Lab
-    </div>
+  <!-- CMP ORG CHART (SAFE ZONE) -->
+  <div class="cmp-safe-zone">
 
-    <!-- CONNECTOR -->
-    <div class="connector"></div>
+    <section id="cmp-org-chart" class="cmp-section">
 
-    <!-- LEVEL 1 -->
-    <div class="branches">
+      <h3 class="cmp-title" data-aos="zoom-in">
+        CMP Laboratory – Organizational Structure
+      </h3>
 
-      <a href="research.html" class="node branch research" data-aos="fade-up">
-        Research Group
-      </a>
+      <div class="org-chart">
 
-      <a href="instrumentation.html" class="node branch instrumentation" data-aos="fade-up" data-aos-delay="100">
-        Instrumentation
-      </a>
+        <!-- ROOT -->
+        <div class="node root" data-aos="zoom-in">
+          CMP Lab
+        </div>
 
-      <a href="theory.html" class="node branch theory" data-aos="fade-up" data-aos-delay="200">
-        Theory & Simulation
-      </a>
+        <!-- CONNECTOR -->
+        <div class="connector"></div>
 
-      <a href="students.html" class="node branch students" data-aos="fade-up" data-aos-delay="300">
-        Students
-      </a>
+        <!-- LEVEL 1 -->
+        <div class="branches">
 
-      <a href="collaboration.html" class="node branch collaboration" data-aos="fade-up" data-aos-delay="400">
-        Collaborations
-      </a>
+          <a href="research.html"
+             class="node branch research"
+             data-aos="fade-up">
+            Research Group
+          </a>
 
-    </div>
+          <a href="instrumentation.html"
+             class="node branch instrumentation"
+             data-aos="fade-up"
+             data-aos-delay="100">
+            Instrumentation
+          </a>
 
+          <a href="theory.html"
+             class="node branch theory"
+             data-aos="fade-up"
+             data-aos-delay="200">
+            Theory & Simulation
+          </a>
+
+          <a href="students.html"
+             class="node branch students"
+             data-aos="fade-up"
+             data-aos-delay="300">
+            Students
+          </a>
+
+          <a href="cvd.html"
+             class="node branch collaboration"
+             data-aos="fade-up"
+             data-aos-delay="400">
+            CVD
+          </a>
+
+        </div>
+      </div>
+
+    </section>
   </div>
+
 </section>
 
-  <?php include 'cmp-org-chart.html'; ?>
-</div>
 
 
 
@@ -381,6 +406,7 @@
 
 </body>
 </html>
+
 
 
 
