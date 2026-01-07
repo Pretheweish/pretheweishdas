@@ -285,17 +285,17 @@
 
 /* =====================================================
    PROJECTS SECTION — CLEAN, UNIFIED, FUTURE-PROOF
-   Fully compatible with existing section-box system
+   SVG-native, semantic, scalable
 ===================================================== */
 
 /* ---------- SECTION WRAPPER ---------- */
 #projects {
-  /* inherits .section-box automatically */
   padding-bottom: 70px;
   position: relative;
+  overflow: hidden; /* glow safety */
 }
 
-/* Glow placement (unique but consistent) */
+/* ---------- BACKGROUND GLOW ---------- */
 #projects::before {
   content: "";
   position: absolute;
@@ -313,17 +313,15 @@
   border-radius: 50%;
 }
 
-/* ---------- HEADING ----------
-   Uses existing .section-box h2 styling
--------------------------------- */
+/* ---------- HEADING ---------- */
 #projects h2 {
   position: relative;
   z-index: 1;
 }
 
-/* ---------- MINDMAP CONTAINER ---------- */
+/* ---------- MINDMAP WRAPPER ---------- */
 #projects .mindmap-wrapper {
-  margin-top: 35px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -333,26 +331,41 @@
 /* ---------- SVG ---------- */
 #projects .mindmap {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
+  height: auto;
 }
 
-/* ---------- CONNECTION CURVES ---------- */
+/* =====================================================
+   SVG ELEMENTS
+===================================================== */
+
+/* ---------- CONNECTION LINKS ---------- */
 #projects .link {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.65);
+  stroke: rgba(255, 255, 255, 0.55);
   stroke-width: 2;
   stroke-linecap: round;
-  transition: stroke 0.3s ease;
+  transition: stroke 0.3s ease, opacity 0.3s ease;
 }
 
-/* ---------- NODES (BASE STYLE) ---------- */
+/* Highlight connection on hover */
+#projects a:hover ~ .link {
+  opacity: 0.9;
+}
+
+/* ---------- NODE BASE ---------- */
 #projects .node {
   cursor: pointer;
-  transition: transform 0.25s ease, filter 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    fill 0.25s ease;
   filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.35));
+  transform-origin: center;
 }
 
-#projects .node:hover {
+/* Hover interaction */
+#projects a:hover .node {
   transform: scale(1.08);
   filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.7));
 }
@@ -360,7 +373,9 @@
 /* ---------- CENTER NODE ---------- */
 #projects .center-node {
   fill: #ff9800;
-  filter: drop-shadow(0 0 14px rgba(255, 180, 0, 0.8));
+  stroke: #ffcc80;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 16px rgba(255, 180, 0, 0.9));
 }
 
 /* ---------- NODE TEXT ---------- */
@@ -369,37 +384,65 @@
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
+  user-select: none;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
 }
 
 /* =====================================================
-   COLOR SYSTEM — SEMANTIC & EXTENSIBLE
+   SEMANTIC COLOR SYSTEM (UPDATED & CORRECT)
+   Based on NEW CLEAN PATH STRUCTURE
 ===================================================== */
 
-/* LEFT CLUSTER */
-#projects a[href*="quantum-mechanics"] rect {
+/* ----- DEPOSITION TECHNIQUES ----- */
+#projects a[href*="pld"] rect {
   fill: #2196f3;
 }
-#projects a[href*="mathematical-physics"] rect {
+#projects a[href*="cvd"] rect {
+  fill: #ff5722;
+}
+
+/* ----- TRANSPORT / MEASUREMENT ----- */
+#projects a[href*="seebeck"] rect {
   fill: #9c27b0;
 }
-#projects a[href*="electromagnetism"] rect {
+#projects a[href*="stm"] rect {
   fill: #3f51b5;
 }
 
-/* RIGHT CLUSTER */
+/* ----- THEORY / MATERIALS ----- */
 #projects a[href*="superconductivity"] rect {
   fill: #e91e63;
 }
 #projects a[href*="condensed-matter"] rect {
   fill: #009688;
 }
-#projects a[href*="solid-state"] rect {
+#projects a[href*="arc-melting"] rect {
   fill: #4caf50;
 }
 
-/* BOTTOM CLUSTER */
-#projects a[href*="experiments"] rect {
-  fill: #ff5722;
+/* ----- DEFAULT FALLBACK ----- */
+#projects a rect {
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 1.5;
+}
+
+/* =====================================================
+   ACCESSIBILITY & POLISH
+===================================================== */
+
+/* Focus (keyboard navigation ready) */
+#projects a:focus-visible rect {
+  outline: none;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  #projects .node,
+  #projects::before {
+    animation: none;
+    transition: none;
+  }
 }
 
 /* =====================================================
@@ -415,7 +458,12 @@
   #projects {
     padding-bottom: 50px;
   }
+
+  #projects .node-text {
+    font-size: 13px;
+  }
 }
+
 
 /* ===========================================================
    MY PAPER AND WORK SECTION - CLEAN, UNIFIED, FUTURE-PROOF
@@ -1367,6 +1415,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
