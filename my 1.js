@@ -160,6 +160,21 @@ window.addEventListener("resize", updateScrollSpeed);
       }
     });
   });
+/* =====================================================
+   PART 6 — ANNOUNCEMENT BAR SPEED ADJUSTMENT (OPTIONAL)
+===================================================== */
+document.querySelectorAll(".cmp-branch").forEach((node, i) => {
+  node.style.animation = `floatNode 4s ease-in-out ${i * 0.3}s infinite`;
+});
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes floatNode {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+`;
+document.head.appendChild(style);
 
 
 
