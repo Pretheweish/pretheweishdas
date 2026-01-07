@@ -422,143 +422,153 @@
    Fully compatible with existing section-box system
 ===============================================================*/
 
-/* MAIN SECTION */
+/* ==========================================
+   GLOBAL RESET
+========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: radial-gradient(circle at top, #2a0a4a, #14001f);
+  color: #eaeaea;
+}
+
+/* ==========================================
+   MAIN SECTION
+========================================== */
 .paper-work-section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
-/* TITLE */
+/* ==========================================
+   SECTION TITLE
+========================================== */
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: #ffe600;
   text-shadow: 0 0 10px #00ffd5;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-/* CONTAINER */
+/* ==========================================
+   GRID CONTAINER (PERMANENT FIX)
+========================================== */
 .paper-work-container {
-  display: flex;
-  flex-direction: row;     /* ⭐ force left–right */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* Work | Divider | Paper */
+  gap: 50px;
   align-items: stretch;
-  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-
-/* COMMON BOX STYLE */
+/* ==========================================
+   COMMON BOX STYLE
+========================================== */
 .paper-work-box {
-  width: 45%;
-  min-width: 280px;
-  padding: 30px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 255, 213, 0.3);
-  box-shadow: 0 0 20px rgba(0, 255, 213, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 35px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 255, 213, 0.35);
+  box-shadow: 0 0 25px rgba(0, 255, 213, 0.2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* HOVER EFFECT */
 .paper-work-box:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 35px rgba(0, 255, 213, 0.4);
+  box-shadow: 0 0 40px rgba(0, 255, 213, 0.45);
 }
 
-/* HEADINGS */
+/* ==========================================
+   BOX HEADINGS
+========================================== */
 .paper-work-box h3 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   color: #00ffd5;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-/* WORK LIST */
-.work-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-.work-list li {
-  margin: 10px 0;
-  font-size: 1.1rem;
-  color: #e0e0e0;
-}
-
-/* PAPER LINK */
-.pdf-link {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  color: #fff;
-  background: linear-gradient(135deg, #ff9800, #ff5722);
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pdf-link:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 30px rgba(255, 152, 0, 0.9);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .paper-work-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .paper-work-box {
-    width: 48%;        /* better symmetry */
-    min-width: 300px;
-  }
-}
-
+/* ==========================================
+   WORK TIMELINE
+========================================== */
 .timeline {
   position: relative;
-  padding-left: 30px;
+  padding-left: 32px;
   border-left: 2px solid #00ffd5;
 }
 
 .timeline-item {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   position: relative;
 }
 
 .timeline-dot {
   position: absolute;
-  left: -10px;
-  top: 6px;
+  left: -11px;
+  top: 7px;
   width: 14px;
   height: 14px;
   background: #00ffd5;
   border-radius: 50%;
-  box-shadow: 0 0 10px #00ffd5;
+  box-shadow: 0 0 12px #00ffd5;
 }
 
 .timeline-content h4 {
   color: #ffe600;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .timeline-content p {
   color: #ddd;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
+/* ==========================================
+   EXPERIMENT BUTTON
+========================================== */
+.experiment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+  padding: 12px 26px;
+  font-size: 1.05rem;
+  color: #111;
+  background: linear-gradient(135deg, #00ffd5, #00c2ff);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(0, 255, 213, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experiment-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(0, 255, 213, 0.95);
+}
+
+/* ==========================================
+   PAPER CARD
+========================================== */
 .paper-card {
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .paper-card img {
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,255,213,0.3);
-  transition: transform 0.3s ease;
+  border-radius: 14px;
+  box-shadow: 0 0 22px rgba(0, 255, 213, 0.35);
+  transition: transform 0.35s ease;
 }
 
 .paper-card:hover img {
@@ -566,37 +576,35 @@
 }
 
 .paper-card p {
-  margin-top: 10px;
+  margin-top: 12px;
   color: #ccc;
 }
 
-/* MODAL */
-.paper-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: 999;
-  justify-content: center;
-  align-items: center;
+/* ==========================================
+   DOWNLOAD BUTTON
+========================================== */
+.pdf-link {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  border-radius: 35px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(255, 152, 0, 0.7);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.modal-content {
-  background: #111;
-  padding: 30px;
-  max-width: 500px;
-  border-radius: 20px;
-  border: 1px solid #00ffd5;
-  box-shadow: 0 0 30px #00ffd5;
+.pdf-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255, 152, 0, 1);
 }
 
-.close-btn {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-  color: #ff5555;
-}
-/* VERTICAL DIVIDER */
+/* ==========================================
+   VERTICAL DIVIDER
+========================================== */
 .vertical-divider {
   width: 3px;
   background: linear-gradient(
@@ -606,18 +614,63 @@
     #00ffd5,
     transparent
   );
-  box-shadow: 
-    0 0 10px #00ffd5,
-    0 0 25px #00ffd5;
-  border-radius: 5px;
+  box-shadow:
+    0 0 12px #00ffd5,
+    0 0 30px #00ffd5;
+  border-radius: 6px;
 }
 
+/* ==========================================
+   MODAL
+========================================== */
+.paper-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #0f0f0f;
+  padding: 32px;
+  max-width: 520px;
+  border-radius: 22px;
+  border: 1px solid #00ffd5;
+  box-shadow: 0 0 35px #00ffd5;
+}
+
+.close-btn {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ff5555;
+}
+
+/* ==========================================
+   RESPONSIVE (MOBILE SAFE)
+========================================== */
 @media (max-width: 768px) {
+
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .paper-work-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   .vertical-divider {
     display: none;
   }
-}
 
+  .paper-work-box {
+    padding: 28px;
+  }
+}
 
 /* ======================================================== 
 USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
@@ -1363,6 +1416,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
