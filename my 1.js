@@ -1,7 +1,7 @@
-/* =====================================================
-   PART 1 — AOS (Animate On Scroll)
-===================================================== */
 <script>
+/* =====================================================
+   PART 1 — MODAL
+===================================================== */
 function openPaperModal() {
   document.getElementById("paperModal").style.display = "flex";
 }
@@ -9,37 +9,25 @@ function openPaperModal() {
 function closePaperModal() {
   document.getElementById("paperModal").style.display = "none";
 }
-</script>
 
 /* =====================================================
-   PART 2 — SCROLL-TO-TOP BUTTON
+   PART 2 — SCROLL TO TOP
 ===================================================== */
-
 const scrollBtn = document.getElementById("scrollTopBtn");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    scrollBtn.style.display = "block";
-  } else {
-    scrollBtn.style.display = "none";
-  }
+  scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
 });
 
 scrollBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-
 /* =====================================================
-   PART 3 — THEME TOGGLE (DAY/NIGHT)
+   PART 3 — THEME TOGGLE
 ===================================================== */
-
 const toggleBtn = document.getElementById("themeToggle");
 
-// Save theme preference
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
   toggleBtn.textContent = "☀️";
@@ -48,7 +36,6 @@ if (localStorage.getItem("theme") === "dark") {
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 
-  // icon update
   if (document.body.classList.contains("dark-mode")) {
     toggleBtn.textContent = "☀️";
     localStorage.setItem("theme", "dark");
@@ -57,6 +44,7 @@ toggleBtn.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
+</script>
 
 
 /* =====================================================
@@ -132,5 +120,6 @@ function updateScrollSpeed() {
 
 updateScrollSpeed();
 window.addEventListener("resize", updateScrollSpeed);
+
 
 
