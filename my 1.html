@@ -241,55 +241,82 @@
 </section>
   
   <!-- PAPER SECTION -->
-<!-- ===============================
-     MY PAPER & WORK SECTION
-================================= -->
-<section id="my-paper" class="paper-work-section">
+<!-- PAPER & WORK SECTION -->
+<section id="my-paper" class="section-box paper-work-section">
 
   <h2 class="section-title">My Paper and Work</h2>
 
-  <!-- GRID CONTAINER -->
   <div class="paper-work-container">
 
     <!-- LEFT : MY WORK -->
-    <div class="paper-work-box" data-aos="fade-left">
+<div class="paper-work-box right-box" data-aos="fade-left">
 
-      <h3>My Work</h3>
+  <h3>My Work</h3>
 
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h4>CVD measurements</h4>
-            <p>Thin Film Growth Process and designing</p>
-
-            <button
-              class="experiment-btn"
-              onclick="window.location.href='Experiment.html'">
-              🧪 Open Experiment Logbook
-            </button>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h4>Python and Data Analysis</h4>
-            <p>BCS fitting, nodal gap models using Python</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h4>Numerical Simulations and Technique</h4>
-            <p>LabView, MATLAB</p>
-          </div>
-        </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Superconductivity Experiments</h4>
+        <p>Low-temperature specific heat & transport studies</p>
+        <button onclick="window.location.href='Experiment.html'">
+        🧪 Open Experiment Logbook
+        </button>
 
       </div>
     </div>
+
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Data Analysis</h4>
+        <p>BCS fitting, nodal gap models using Python</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Numerical Simulations</h4>
+        <p>Quantum & solid-state simulations (Python/MATLAB)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vertical-divider"></div>
+
+    <!-- RIGHT : MY PAPER -->
+<div class="paper-work-box left-box" data-aos="fade-right">
+
+  <h3>My Paper</h3>
+
+  <div class="paper-card" onclick="openPaperModal()">
+    <img src="assets/img/paper-thumb.png" alt="Paper Thumbnail">
+    <p>Click to view abstract</p>
+  </div>
+
+  <a href="assets/pdf/document.pdf" target="_blank" class="pdf-link">
+    📄 Download Full Paper
+  </a>
+</div>
+
+<!-- MODAL -->
+<div id="paperModal" class="paper-modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closePaperModal()">×</span>
+    <h3>Paper Abstract</h3>
+    <p>
+      This work investigates the low-temperature electronic specific heat
+      of unconventional superconductors using various gap symmetry models.
+      Experimental data were analyzed within BCS and nodal frameworks.
+    </p>
+  </div>
+</div>
+
+
+  </div>
+</section>
 
     <!-- CENTER DIVIDER -->
     <div class="vertical-divider"></div>
@@ -406,6 +433,7 @@
 
 </body>
 </html>
+
 
 
 
