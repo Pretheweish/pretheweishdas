@@ -44,7 +44,6 @@ toggleBtn.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
-</script>
 
 
 /* =====================================================
@@ -120,6 +119,9 @@ function updateScrollSpeed() {
 
 updateScrollSpeed();
 window.addEventListener("resize", updateScrollSpeed);
+
+</script>
+
 
 
 
