@@ -386,113 +386,10 @@
   }
 }
 
-
-
-/* ========== USEFUL LINKS ========== */
-#useful-links {
-  position: relative;
-}
-
-#useful-links::before {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  top: -70px;
-  left: -60px;
-  background: radial-gradient(
-    circle,
-    rgba(0,255,255,0.35),
-    transparent 70%
-  );
-  animation: sectionGlow 6s infinite alternate ease-in-out;
-  z-index: 0;
-  border-radius: 50%;
-}
-
-#useful-links h2 {
-  font-family: 'Satisfy', cursive;
-  font-size: 2.4rem;
-  color:  #ffe100;
-  text-shadow: 0 0 10px #00ffff,
-               0 0 30px #00e1ff;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 1;
-}
-
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  justify-items: center;
-  position: relative;
-  z-index: 1;
-}
-
-.links-grid a {
-  display: inline-block;
-  padding: 15px 25px;
-  border-radius: 15px;
-  border: 1px solid rgba(0, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.05);
-  text-decoration: none;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #00ffff;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
-  transition: all 0.3s ease-in-out;
-}
-
-.links-grid a:hover {
-  background: #00ffff;
-  color: #111;
-  box-shadow: 0 0 25px #00ffff,
-              0 0 40px #00ffff;
-  transform: translateY(-5px) scale(1.05);
-}
-
-.pdf-link {
-  color: red;
-  font-weight: bold;
-}
-
-.pdf-link:hover {
-  color: black;
-}
-
-/* Small screens */
-@media (max-width: 600px) {
-  #useful-links h2 {
-    font-size: 2rem;
-  }
-  .links-grid a {
-    font-size: 1rem;
-    padding: 10px 18px;
-  }
-}
-
-/* Responsive section fixes */
-@media (max-width: 600px) {
-  .section-box {
-    width: 92%;
-    padding: 35px 20px;
-  }
-  .section-box h2 {
-    font-size: 2rem;
-  }
-  .section-box p {
-    width: 95%;
-    font-size: 1rem;
-  }
-  .section-box img {
-    width: 180px;
-  }
-}
-
-/* ===========================
-   MY PAPER AND WORK SECTION
-=========================== */
+/* ===========================================================
+   MY PAPER AND WORK SECTION - CLEAN, UNIFIED, FUTURE-PROOF
+   Fully compatible with existing section-box system
+===============================================================*/
 
 /* MAIN SECTION */
 .paper-work-section {
@@ -687,6 +584,113 @@
 @media (max-width: 768px) {
   .vertical-divider {
     display: none;
+  }
+}
+
+
+/* ======================================================== 
+USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
+   Fully compatible with existing section-box system
+=========================================================== */
+
+#useful-links {
+  position: relative;
+}
+
+#useful-links::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -70px;
+  left: -60px;
+  background: radial-gradient(
+    circle,
+    rgba(0,255,255,0.35),
+    transparent 70%
+  );
+  animation: sectionGlow 6s infinite alternate ease-in-out;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+#useful-links h2 {
+  font-family: 'Satisfy', cursive;
+  font-size: 2.4rem;
+  color:  #ffe100;
+  text-shadow: 0 0 10px #00ffff,
+               0 0 30px #00e1ff;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.links-grid a {
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #00ffff;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.links-grid a:hover {
+  background: #00ffff;
+  color: #111;
+  box-shadow: 0 0 25px #00ffff,
+              0 0 40px #00ffff;
+  transform: translateY(-5px) scale(1.05);
+}
+
+.pdf-link {
+  color: red;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  color: black;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  #useful-links h2 {
+    font-size: 2rem;
+  }
+  .links-grid a {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}
+
+/* Responsive section fixes */
+@media (max-width: 600px) {
+  .section-box {
+    width: 92%;
+    padding: 35px 20px;
+  }
+  .section-box h2 {
+    font-size: 2rem;
+  }
+  .section-box p {
+    width: 95%;
+    font-size: 1rem;
+  }
+  .section-box img {
+    width: 180px;
   }
 }
 
@@ -1328,6 +1332,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
