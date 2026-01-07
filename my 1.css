@@ -289,95 +289,122 @@
   border-radius: 50%;
 }
 
-/* ===============================
-   CMP LAB SEMANTIC MINDMAP
+/* ==============================
+   CMP LAB NEON SEMANTIC TREE
 ================================ */
 
-.cmp-projects {
-  padding: 80px 20px;
-  text-align: center;
+.cmp-section {
+  padding: 90px 20px;
   background: radial-gradient(circle at top, #1b0030, #050008);
+  text-align: center;
+  position: relative;
   overflow: hidden;
 }
 
-/* TITLE */
 .cmp-title {
   font-size: 2.6rem;
-  margin-bottom: 60px;
   color: #00ffd5;
-  text-shadow: 0 0 15px #00ffd5;
+  text-shadow: 0 0 18px #00ffd5;
+  margin-bottom: 70px;
 }
 
-/* MINDMAP CONTAINER */
-.cmp-mindmap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* WRAPPER */
+.cmp-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  height: 380px;
 }
 
-/* COMMON NODE STYLE */
+/* SVG LINES */
+.cmp-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cmp-lines line {
+  stroke: #00ffd5;
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  animation: drawLine 3s linear infinite;
+  opacity: 0.7;
+}
+
+/* LINE ANIMATION */
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* NODE COMMON */
 .cmp-node {
-  color: #fff;
-  text-decoration: none;
-  padding: 18px 32px;
+  position: absolute;
+  z-index: 2;
+  padding: 16px 30px;
   border-radius: 18px;
   backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  text-decoration: none;
   transition: 0.4s ease;
-  position: relative;
 }
 
 /* ROOT */
 .cmp-root {
-  font-size: 1.6rem;
-  box-shadow: 0 0 35px #00ffd5;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  box-shadow: 0 0 40px #00ffd5;
   animation: rootPulse 3s infinite;
 }
 
-/* BRANCH WRAPPER */
-.cmp-branches {
-  margin-top: 70px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-/* BRANCH */
-.cmp-branch {
-  min-width: 230px;
-  font-size: 1rem;
-}
+/* BRANCH POSITIONS */
+.cmp-branches .cmp-branch:nth-child(1) { left: 50px;  top: 200px; }
+.cmp-branches .cmp-branch:nth-child(2) { left: 250px; top: 200px; }
+.cmp-branches .cmp-branch:nth-child(3) { left: 450px; top: 200px; }
+.cmp-branches .cmp-branch:nth-child(4) { left: 650px; top: 200px; }
+.cmp-branches .cmp-branch:nth-child(5) { left: 350px; top: 270px; }
 
 /* COLORS */
-.b1 { box-shadow: 0 0 20px #ff4ecd; background: rgba(255, 78, 205, 0.2); }
-.b2 { box-shadow: 0 0 20px #00ffd5; background: rgba(0, 255, 213, 0.2); }
-.b3 { box-shadow: 0 0 20px #ffa500; background: rgba(255, 165, 0, 0.2); }
-.b4 { box-shadow: 0 0 20px #7cff00; background: rgba(124, 255, 0, 0.2); }
-.b5 { box-shadow: 0 0 20px #5f9cff; background: rgba(95, 156, 255, 0, 0.2); }
+.b1 { box-shadow: 0 0 20px #ff4ecd; }
+.b2 { box-shadow: 0 0 20px #00ffd5; }
+.b3 { box-shadow: 0 0 20px #ffa500; }
+.b4 { box-shadow: 0 0 20px #7cff00; }
+.b5 { box-shadow: 0 0 20px #5f9cff; }
 
 /* HOVER */
 .cmp-branch:hover {
-  transform: translateY(-10px) scale(1.06);
-  box-shadow: 0 0 35px currentColor;
+  transform: scale(1.08);
+  box-shadow: 0 0 40px currentColor;
 }
 
 /* ROOT ANIMATION */
 @keyframes rootPulse {
-  0%, 100% { box-shadow: 0 0 25px #00ffd5; }
-  50% { box-shadow: 0 0 50px #00ffd5; }
+  0%,100% { box-shadow: 0 0 25px #00ffd5; }
+  50% { box-shadow: 0 0 60px #00ffd5; }
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .cmp-title {
-    font-size: 2.1rem;
+  .cmp-wrapper {
+    height: auto;
   }
 
-  .cmp-branch {
-    min-width: 180px;
+  .cmp-lines {
+    display: none;
+  }
+
+  .cmp-node {
+    position: static;
+    margin: 15px auto;
+    display: block;
+    width: fit-content;
   }
 }
+
 
 
 /* ===========================================================
@@ -1330,6 +1357,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
