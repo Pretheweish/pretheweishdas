@@ -338,6 +338,55 @@ a[href*="experiments"] rect {
   font-weight: 600;
   pointer-events: none;
 }
+/* =====================================================
+   PROJECTS SECTION FIX — MATCH OTHER SECTIONS
+===================================================== */
+
+/* Ensure Projects inherits section-box glow */
+#projects::before {
+  left: auto;
+  right: -60px;
+  top: 40%;
+}
+
+/* Proper spacing */
+#projects {
+  padding-bottom: 70px;
+}
+
+/* Mindmap spacing */
+#projects .mindmap-wrapper {
+  margin-top: 35px;
+  position: relative;
+  z-index: 1;
+}
+
+/* SVG scaling consistency */
+#projects .mindmap {
+  max-width: 1000px;
+}
+
+/* Improve curve visibility on glass background */
+#projects .link {
+  stroke: rgba(255, 255, 255, 0.65);
+}
+
+/* Slight glow on nodes to match cards */
+#projects .node {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.35));
+}
+
+/* Hover glow enhancement */
+#projects .node:hover {
+  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.7));
+}
+
+/* Mobile spacing fix */
+@media (max-width: 600px) {
+  #projects .mindmap {
+    max-width: 100%;
+  }
+}
 
 
 /* ========== USEFUL LINKS ========== */
@@ -1080,6 +1129,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
