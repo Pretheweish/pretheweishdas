@@ -289,122 +289,123 @@
   border-radius: 50%;
 }
 
-/* ==============================
-   CMP LAB NEON SEMANTIC TREE
+/* ================================
+   CMP ORG CHART – NEON GLASS
 ================================ */
 
 .cmp-section {
-  padding: 90px 20px;
-  background: radial-gradient(circle at top, #1b0030, #050008);
+  padding: 80px 20px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: radial-gradient(circle at top, #12001f, #05010a);
 }
 
 .cmp-title {
   font-size: 2.6rem;
   color: #00ffd5;
-  text-shadow: 0 0 18px #00ffd5;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
+  text-shadow: 0 0 15px #00ffd5;
 }
 
-/* WRAPPER */
-.cmp-wrapper {
-  position: relative;
-  max-width: 1000px;
-  margin: auto;
-  height: 380px;
+/* CHART WRAPPER */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* SVG LINES */
-.cmp-lines {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.cmp-lines line {
-  stroke: #00ffd5;
-  stroke-width: 2;
-  stroke-dasharray: 6 6;
-  animation: drawLine 3s linear infinite;
-  opacity: 0.7;
-}
-
-/* LINE ANIMATION */
-@keyframes drawLine {
-  to {
-    stroke-dashoffset: -100;
-  }
-}
-
-/* NODE COMMON */
-.cmp-node {
-  position: absolute;
-  z-index: 2;
-  padding: 16px 30px;
-  border-radius: 18px;
+/* NODE BASE */
+.node {
+  padding: 18px 28px;
+  border-radius: 16px;
   backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 1.1rem;
   color: #fff;
   text-decoration: none;
-  transition: 0.4s ease;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
 }
 
-/* ROOT */
-.cmp-root {
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  box-shadow: 0 0 40px #00ffd5;
-  animation: rootPulse 3s infinite;
+/* ROOT NODE */
+.root {
+  font-size: 1.4rem;
+  padding: 22px 45px;
+  color: #fff;
+  background: rgba(0, 255, 150, 0.15);
+  box-shadow: 0 0 30px #00ff9d;
 }
 
-/* BRANCH POSITIONS */
-.cmp-branches .cmp-branch:nth-child(1) { left: 50px;  top: 200px; }
-.cmp-branches .cmp-branch:nth-child(2) { left: 250px; top: 200px; }
-.cmp-branches .cmp-branch:nth-child(3) { left: 450px; top: 200px; }
-.cmp-branches .cmp-branch:nth-child(4) { left: 650px; top: 200px; }
-.cmp-branches .cmp-branch:nth-child(5) { left: 350px; top: 270px; }
-
-/* COLORS */
-.b1 { box-shadow: 0 0 20px #ff4ecd; }
-.b2 { box-shadow: 0 0 20px #00ffd5; }
-.b3 { box-shadow: 0 0 20px #ffa500; }
-.b4 { box-shadow: 0 0 20px #7cff00; }
-.b5 { box-shadow: 0 0 20px #5f9cff; }
-
-/* HOVER */
-.cmp-branch:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 40px currentColor;
+.root:hover {
+  transform: scale(1.05);
 }
 
-/* ROOT ANIMATION */
-@keyframes rootPulse {
-  0%,100% { box-shadow: 0 0 25px #00ffd5; }
-  50% { box-shadow: 0 0 60px #00ffd5; }
+/* CONNECTOR LINE */
+.connector {
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(#00ffd5, transparent);
+  margin: 10px 0 30px;
+}
+
+/* BRANCHES */
+.branches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+}
+
+/* HOVER EFFECT */
+.node:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* DIFFERENT COLORS */
+.research {
+  box-shadow: 0 0 20px #ff00ff;
+}
+.research:hover {
+  box-shadow: 0 0 35px #ff00ff;
+}
+
+.instrumentation {
+  box-shadow: 0 0 20px #00ffff;
+}
+.instrumentation:hover {
+  box-shadow: 0 0 35px #00ffff;
+}
+
+.theory {
+  box-shadow: 0 0 20px #ffe600;
+}
+.theory:hover {
+  box-shadow: 0 0 35px #ffe600;
+}
+
+.students {
+  box-shadow: 0 0 20px #ff6600;
+}
+.students:hover {
+  box-shadow: 0 0 35px #ff6600;
+}
+
+.collaboration {
+  box-shadow: 0 0 20px #7cff00;
+}
+.collaboration:hover {
+  box-shadow: 0 0 35px #7cff00;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .cmp-wrapper {
-    height: auto;
-  }
-
-  .cmp-lines {
-    display: none;
-  }
-
-  .cmp-node {
-    position: static;
-    margin: 15px auto;
-    display: block;
-    width: fit-content;
+  .branches {
+    flex-direction: column;
   }
 }
-
 
 
 /* ===========================================================
@@ -1357,6 +1358,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
