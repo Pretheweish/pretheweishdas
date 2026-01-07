@@ -10,6 +10,7 @@ function closePaperModal() {
   document.getElementById("paperModal").style.display = "none";
 }
 </script>
+
 /* =====================================================
    PART 2 — SCROLL-TO-TOP BUTTON
 ===================================================== */
@@ -131,4 +132,5 @@ function updateScrollSpeed() {
 
 updateScrollSpeed();
 window.addEventListener("resize", updateScrollSpeed);
+
 
