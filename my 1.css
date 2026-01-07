@@ -407,6 +407,37 @@
   }
 }
 
+/* =====================================
+   PROJECT SECTION – CMP ORG CHART FIX
+===================================== */
+
+/* Prevent section-box clipping */
+#projects {
+  overflow: visible;
+}
+
+/* Safe container inside section-box */
+.cmp-safe-zone {
+  position: relative;
+  overflow: visible;
+  z-index: 5;
+}
+
+/* CMP section isolation */
+.cmp-section {
+  position: relative;
+  overflow: visible;
+  min-height: 700px;
+  z-index: 10;
+}
+
+/* Org chart always above glow layers */
+.org-chart,
+.branches,
+.node {
+  position: relative;
+  z-index: 20;
+}
 
 /* ===========================================================
    MY PAPER AND WORK SECTION - CLEAN, UNIFIED, FUTURE-PROOF
@@ -1358,6 +1389,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
