@@ -283,6 +283,11 @@
   margin: 10px 0;
 }
 
+/
+  animation: sectionGlow 6s infinite alternate ease-in-out;
+  z-index: 0;
+  border-radius: 50%;
+}
 /* =====================================================
    PROJECTS SECTION — CLEAN, UNIFIED, FUTURE-PROOF
    SVG-native, semantic, scalable
@@ -292,7 +297,7 @@
 #projects {
   padding-bottom: 70px;
   position: relative;
-  overflow: hidden; /* glow safety */
+  overflow: hidden;
 }
 
 /* ---------- BACKGROUND GLOW ---------- */
@@ -345,17 +350,14 @@
   stroke: rgba(255, 255, 255, 0.55);
   stroke-width: 2;
   stroke-linecap: round;
-  transition: stroke 0.3s ease, opacity 0.3s ease;
-}
-
-/* Highlight connection on hover */
-#projects a:hover ~ .link {
-  opacity: 0.9;
 }
 
 /* ---------- NODE BASE ---------- */
 #projects .node {
+  fill: #111; /* fallback */
   cursor: pointer;
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 1.5;
   transition:
     transform 0.25s ease,
     filter 0.25s ease,
@@ -364,10 +366,10 @@
   transform-origin: center;
 }
 
-/* Hover interaction */
+/* ---------- HOVER ---------- */
 #projects a:hover .node {
   transform: scale(1.08);
-  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.7));
+  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.75));
 }
 
 /* ---------- CENTER NODE ---------- */
@@ -389,60 +391,28 @@
 }
 
 /* =====================================================
-   SEMANTIC COLOR SYSTEM (UPDATED & CORRECT)
-   Based on NEW CLEAN PATH STRUCTURE
+   SEMANTIC COLOR SYSTEM (WORKING)
 ===================================================== */
 
-/* ----- DEPOSITION TECHNIQUES ----- */
-#projects a[href*="pld"] rect {
-  fill: #2196f3;
-}
-#projects a[href*="cvd"] rect {
-  fill: #ff5722;
-}
+/* Deposition */
+#projects a[href*="pld"] rect { fill: #2196f3; }
+#projects a[href*="cvd"] rect { fill: #ff5722; }
 
-/* ----- TRANSPORT / MEASUREMENT ----- */
-#projects a[href*="seebeck"] rect {
-  fill: #9c27b0;
-}
-#projects a[href*="stm"] rect {
-  fill: #3f51b5;
-}
+/* Measurement */
+#projects a[href*="seebeck"] rect { fill: #9c27b0; }
+#projects a[href*="stm"] rect { fill: #3f51b5; }
 
-/* ----- THEORY / MATERIALS ----- */
-#projects a[href*="superconductivity"] rect {
-  fill: #e91e63;
-}
-#projects a[href*="condensed-matter"] rect {
-  fill: #009688;
-}
-#projects a[href*="arc-melting"] rect {
-  fill: #4caf50;
-}
-
-/* ----- DEFAULT FALLBACK ----- */
-#projects a rect {
-  stroke: rgba(255, 255, 255, 0.25);
-  stroke-width: 1.5;
-}
+/* Theory / Materials */
+#projects a[href*="superconductivity"] rect { fill: #e91e63; }
+#projects a[href*="condensed-matter"] rect { fill: #009688; }
+#projects a[href*="arc-melting"] rect { fill: #4caf50; }
 
 /* =====================================================
-   ACCESSIBILITY & POLISH
+   ACCESSIBILITY
 ===================================================== */
-
-/* Focus (keyboard navigation ready) */
 #projects a:focus-visible rect {
   outline: none;
   filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
-}
-
-/* Reduce motion preference */
-@media (prefers-reduced-motion: reduce) {
-  #projects .node,
-  #projects::before {
-    animation: none;
-    transition: none;
-  }
 }
 
 /* =====================================================
@@ -463,6 +433,7 @@
     font-size: 13px;
   }
 }
+
 
 
 /* ===========================================================
@@ -1415,6 +1386,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
