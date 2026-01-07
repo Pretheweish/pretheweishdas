@@ -923,7 +923,7 @@ body.dark-mode #scrollTopBtn:hover {
 ============================ */
 body.dark-mode {
   background-color: #faf6f9;
-  color: #333;
+  color: #ffffff;
 }
 
 /* Header override in dark mode */
@@ -1363,6 +1363,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
