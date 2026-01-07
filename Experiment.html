@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Laboratory Experiment Record</title>
 
+<!-- ================== CSS ================== -->
 <style>
 body {
   background: #0a0f1f;
@@ -12,10 +13,16 @@ body {
   padding: 30px;
 }
 
+/* TITLE */
 h1 {
   text-align: center;
   color: #00ffd5;
   margin-bottom: 20px;
+}
+
+h2 {
+  color: #ffe600;
+  margin-top: 30px;
 }
 
 /* SEARCH */
@@ -25,27 +32,29 @@ h1 {
   margin-bottom: 20px;
   font-size: 16px;
 }
-<h2>➕ Add New Experiment</h2>
 
-<form id="experimentForm">
-  <input type="text" placeholder="Experiment Name" required><br><br>
+/* FORM */
+form {
+  background: #112240;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
 
-  <textarea placeholder="Parameters Taken" required></textarea><br><br>
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  background: #0a0f1f;
+  color: #eaeaea;
+  border: 1px solid #00ffd5;
+}
 
-  <textarea placeholder="Properties / Important Facts"></textarea><br><br>
-
-  <textarea placeholder="Result"></textarea><br><br>
-
-  <input type="text" placeholder="Image / Graph Path (files/image.png)"><br><br>
-
-  <input type="text" placeholder="File Link (files/report.pdf)"><br><br>
-
-  <textarea placeholder="Conclusion"></textarea><br><br>
-
-  <button type="submit">➕ Add Experiment</button>
-</form>
-
-<hr><br>
+form textarea {
+  height: 70px;
+}
 
 /* TABLE */
 table {
@@ -66,6 +75,10 @@ th {
 
 tr:nth-child(even) {
   background: #0f1a35;
+}
+
+tr:hover {
+  background: rgba(0,255,213,0.1);
 }
 
 /* IMAGE */
@@ -94,7 +107,7 @@ button:hover {
     background: white;
     color: black;
   }
-  button, #searchInput, #csvInput {
+  button, #searchInput, #csvInput, form {
     display: none;
   }
 }
@@ -103,14 +116,40 @@ button:hover {
 
 <body>
 
+<!-- ================== TITLE ================== -->
 <h1>🧪 Laboratory Experiment Record</h1>
 
+<!-- ================== ADD EXPERIMENT FORM ================== -->
+<h2>➕ Add New Experiment</h2>
+
+<form id="experimentForm">
+  <input type="text" placeholder="Experiment Name" required>
+
+  <textarea placeholder="Parameters Taken" required></textarea>
+
+  <textarea placeholder="Properties / Important Facts"></textarea>
+
+  <textarea placeholder="Result"></textarea>
+
+  <input type="text" placeholder="Image / Graph Path (files/image.png)">
+
+  <input type="text" placeholder="File Link (files/report.pdf)">
+
+  <textarea placeholder="Conclusion"></textarea>
+
+  <button type="submit">➕ Add Experiment</button>
+</form>
+
+<hr>
+
+<!-- ================== SEARCH & ACTIONS ================== -->
 <input type="text" id="searchInput" placeholder="🔍 Search experiment..." onkeyup="searchExperiment()">
 
 <input type="file" id="csvInput" accept=".csv" onchange="importCSV()">
 
 <button onclick="window.print()">🖨️ Print Report</button>
 
+<!-- ================== TABLE ================== -->
 <table id="experimentTable">
 <thead>
 <tr>
@@ -126,33 +165,22 @@ button:hover {
 </thead>
 
 <tbody>
-
 <tr>
   <td></td>
   <td>Hall Effect</td>
   <td>B, I, VH</td>
-  <td>Carrier concentration, sign</td>
+  <td>Carrier concentration</td>
   <td>Hall coefficient calculated</td>
   <td><img src="files/hall_graph.png" class="preview"></td>
   <td><a href="files/hall.pdf">PDF</a></td>
   <td>n-type semiconductor</td>
 </tr>
-
-<tr>
-  <td></td>
-  <td>Four Probe Method</td>
-  <td>T, V, I</td>
-  <td>Resistivity vs temperature</td>
-  <td>Band gap obtained</td>
-  <td><img src="files/fourprobe.png" class="preview"></td>
-  <td><a href="files/fourprobe.xlsx">Excel</a></td>
-  <td>Semiconducting behavior</td>
-</tr>
-
 </tbody>
 </table>
 
+<!-- ================== JAVASCRIPT ================== -->
 <script>
+
 /* AUTO NUMBERING */
 function autoNumber() {
   const rows = document.querySelectorAll("#experimentTable tbody tr");
@@ -162,7 +190,7 @@ function autoNumber() {
 }
 autoNumber();
 
-/* SEARCH */
+/* SEARCH FUNCTION */
 function searchExperiment() {
   const input = document.getElementById("searchInput").value.toLowerCase();
   const rows = document.querySelectorAll("#experimentTable tbody tr");
@@ -204,8 +232,8 @@ function importCSV() {
   };
   reader.readAsText(file);
 }
-</script>
-<script>
+
+/* ADD EXPERIMENT FORM */
 document.getElementById("experimentForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -237,7 +265,6 @@ document.getElementById("experimentForm").addEventListener("submit", function(e)
   this.reset();
 });
 </script>
+
 </body>
 </html>
-
-
