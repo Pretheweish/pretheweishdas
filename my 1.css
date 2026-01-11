@@ -265,28 +265,187 @@
   filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
 }
 
+/* =================================
+   INTEREST SECTION
+================================= */
+.interest-section {
+  padding: 70px 20px;
+  background: radial-gradient(circle at top, #2b0a4a, #14001f);
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(0, 255, 213, 0.15);
+}
 
-/* ========== RESEARCH ========== */
-#research { composes: section-box; }
+.interest-title {
+  font-size: 2.6rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px #00ffd5;
+  margin-bottom: 35px;
+}
 
-#research ul {
-  list-style: none;
-  margin-top: 20px;
-  color: #d0faff;
+/* =================================
+   TOGGLE BUTTONS
+================================= */
+.interest-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  padding: 14px 32px;
+  border-radius: 35px;
+  border: none;
+  cursor: pointer;
   font-size: 1.1rem;
-  line-height: 1.7;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+}
+
+.toggle-btn:hover {
+  box-shadow: 0 0 20px #00ffd5;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #00ffd5, #6a00ff);
+  color: #000;
+  box-shadow: 0 0 25px #00ffd5;
+}
+
+/* =================================
+   CONTENT BOX
+================================= */
+.interest-box {
+  max-width: 620px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 30px;
+  border-radius: 22px;
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.12);
+  opacity: 0;
+  transform: translateY(20px);
+  display: none;
+  transition: all 0.6s ease;
+}
+
+.interest-box.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.interest-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.interest-box li {
+  font-size: 1.15rem;
+  padding: 12px 0;
+  color: #eaeaea;
+}
+
+.interest-box li::before {
+  content: "✦ ";
+  color: #00ffd5;
+}
+
+/* =================================
+   ATOM SYSTEM
+================================= */
+.atom-wrapper {
   position: relative;
-  z-index: 1;
+  width: 44px;
+  height: 44px;
+  margin-right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#research li {
-  margin: 10px 0;
-}
-
-/
-  animation: sectionGlow 6s infinite alternate ease-in-out;
-  z-index: 0;
+/* Nucleus */
+.atom-core {
+  width: 8px;
+  height: 8px;
+  background: #00ffd5;
   border-radius: 50%;
+  box-shadow: 0 0 12px #00ffd5;
+  z-index: 3;
+}
+
+/* Orbit base */
+.orbit {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 1.7px solid rgba(0, 255, 213, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 213, 0.4);
+  opacity: 0;
+}
+
+/* Tilted planes */
+.orbit-1 { transform: rotateX(65deg); }
+.orbit-2 { transform: rotateY(65deg); }
+.orbit-3 { transform: rotateZ(65deg); }
+
+/* Electron */
+.electron {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #ffe600;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px #ffe600;
+}
+
+/* Animate only when active */
+.toggle-btn.active .orbit {
+  opacity: 1;
+}
+
+.toggle-btn.active .orbit-1 {
+  animation: spin1 4s linear infinite;
+}
+
+.toggle-btn.active .orbit-2 {
+  animation: spin2 6s linear infinite;
+}
+
+.toggle-btn.active .orbit-3 {
+  animation: spin3 5s linear infinite;
+}
+
+/* Rotations */
+@keyframes spin1 {
+  from { transform: rotateX(65deg) rotate(0deg); }
+  to   { transform: rotateX(65deg) rotate(360deg); }
+}
+
+@keyframes spin2 {
+  from { transform: rotateY(65deg) rotate(0deg); }
+  to   { transform: rotateY(65deg) rotate(360deg); }
+}
+
+@keyframes spin3 {
+  from { transform: rotateZ(65deg) rotate(0deg); }
+  to   { transform: rotateZ(65deg) rotate(360deg); }
+}
+
+/* Hobby icon */
+.hobby-icon {
+  font-size: 1.4rem;
+  margin-right: 10px;
 }
 
 /* ================================
@@ -1474,6 +1633,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
