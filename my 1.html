@@ -4,27 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pretheweish Das | Physics Student</title>
-
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- GOOGLE FONT -->
+  <link rel="stylesheet" href="my 1.css" />
   <link href="https://fonts.googleapis.com/css2?family=Satisfy:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-
 <body>
-
-  <!-- BACKGROUND ANIMATION -->
+  
+  <!-- Background Animation Layer -->
   <div id="droplet-container" aria-hidden="true"></div>
 
-  <!-- ================= HEADER ================= -->
+  <!-- HEADER -->
   <header class="animated-header">
-
     <div class="header-left">
-      <img src="assets/images/logo3.webp" alt="Flower" class="flower" />
+      <img src="assets/images/logo3.webp" alt="Left Flower" class="flower left-flower" />
     </div>
 
     <div class="header-center">
@@ -34,258 +26,434 @@
     </div>
 
     <div class="header-right">
-      <img src="assets/images/logo3.webp" alt="Flower" class="flower" />
+      <img src="assets/images/logo3.webp" alt="Right Flower" class="flower right-flower" />
     </div>
-
   </header>
 
-  <!-- ================= NAVIGATION ================= -->
+  <!-- NAVIGATION BAR -->
   <nav class="glass-nav">
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="#interest">Interest</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Interest</a></li>
+      <li><a href="#projects">Projecs</a></li>
       <li><a href="#my-paper">My Paper</a></li>
       <li><a href="#videos">My Videos</a></li>
       <li><a href="#useful-links">Useful Links</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+<!-- Floating Pill Button -->
+<div class="login-btn" onclick="document.getElementById('authModal').showModal()">
 
-  <!-- ================= LOGIN BUTTON ================= -->
-  <div class="login-btn" onclick="document.getElementById('authModal').showModal()">
-    <svg xmlns="http://www.w3.org/2000/svg" height="26" width="26" fill="#002233">
-      <path d="M7 22q-1.25 0-2.125-.875T4 19V11q0-1.25.875-2.125T7 8h1V6q0-2.5 1.75-4.25T14 0q2.5 0 4.25 1.75T20 6v2h1q1.25 0 2.125.875T24 11v8q0 1.25-.875 2.125T21 22Zm4-11h6V6q0-1.25-.875-2.125T14 3q-1.25 0-2.125.875T11 6Zm3 10q.825 0 1.412-.587Q16 19.825 16 19q0-.825-.588-1.412Q14.825 17 14 17q-.825 0-1.412.588Q12 18.175 12 19q0 .825.588 1.413Q13.175 21 14 21Z"/>
-    </svg>
-  </div>
+  <!-- 🔵 CHANGE ICON HERE -->
+  <!-- Option 1: Person Icon -->
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" height="26" width="26" fill="#002233">
+    <path d="M14 14.7q-2.475 0-4.237-1.762Q8 11.175 8 8.7q0-2.5 1.763-4.25Q11.525 2.7 14 2.7q2.475 0 4.238 1.75Q20 6.2 20 8.7q0 2.475-1.762 4.238Q16.475 14.7 14 14.7Zm-9 10.6v-2.3q0-1.575.825-2.825.825-1.25 2.225-2.025 2.4-1.3 5.95-1.3t5.95 1.3q1.4.775 2.225 2.025Q24 21.425 24 23v2.3Z"/>
+  </svg> -->
 
-  <!-- ================= LOGIN MODAL ================= -->
+  <!-- Option 2: Key Icon -->
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" height="26" width="26" fill="#002233">
+    <path d="M19.5 3q2.725 0 4.613 1.887Q26 6.775 26 9.5q0 2.725-1.887 4.612Q22.225 16 19.5 16q-.85 0-1.687-.2-.838-.2-1.613-.6l-6.9 6.95H6v3H3v3H0v-4.8l8.45-8.45q-.4-.775-.6-1.612Q7.65 12.35 7.65 11.5q0-2.725 1.887-4.612Q11.425 5 14.15 5q1.575 0 2.938.688 1.362.687 2.287 1.862Q20.3 8.725 19.5 9.5q-.8.775-1.575-.1Q17.15 8.5 16 7.75q-.75-.5-1.487-.75-.738-.25-1.363-.25-1.75 0-2.987 1.238Q8.925 9.225 8.925 11q0 .75.275 1.425.275.675.725 1.225L15 8.6q1 .625 2.15.962 1.15.338 2.35.338 1.725 0 2.938-1.213Q24.65 7.475 24.65 5.75t-1.212-2.987Q22.225 2.55 20.5 2.55Z"/>
+  </svg> -->
+
+  <!-- Option 3: Lock Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" height="26" width="26" fill="#002233">
+    <path d="M7 22q-1.25 0-2.125-.875T4 19V11q0-1.25.875-2.125T7 8h1V6q0-2.5 1.75-4.25T14 0q2.5 0 4.25 1.75T20 6v2h1q1.25 0 2.125.875T24 11v8q0 1.25-.875 2.125T21 22Zm4-11h6V6q0-1.25-.875-2.125T14 3q-1.25 0-2.125.875T11 6Zm3 10q.825 0 1.412-.587Q16 19.825 16 19q0-.825-.588-1.412Q14.825 17 14 17q-.825 0-1.412.588Q12 18.175 12 19q0 .825.588 1.413Q13.175 21 14 21Z"/>
+  </svg>
+
+</div>
+
+
+  <!-- LOGIN MODAL -->
   <dialog id="authModal" class="modal">
     <form method="dialog" class="card">
       <h2>User Login</h2>
 
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
 
       <div class="btn-row">
-        <button type="button">Create</button>
-        <button type="button">Login</button>
+        <button type="button" onclick="signup()">Create</button>
+        <button type="button" onclick="login()">Login</button>
         <button>Close</button>
       </div>
 
-      <p class="msg"></p>
+      <p id="authMsg" class="msg"></p>
     </form>
   </dialog>
 
-  <!-- ================= THEME TOGGLE ================= -->
+
+
+  <!-- Theme Toggle Button -->
   <button id="themeToggle">🌙</button>
 
-  <!-- ================= ANNOUNCEMENT ================= -->
+  <!-- Announcement Bar -->
   <div class="announcement-bar">
     <div class="scroll-text">
       <span class="star">★</span>
-      Announcement: My new research paper on "2D Quantum Material" will be released soon!
+      Announcement: My new research paper on "2D quantum Material" will be released soon!
       <span class="star">★</span>
     </div>
   </div>
 
-  <!-- ================= ABOUT ================= -->
+  <!-- ABOUT SECTION -->
   <section id="about" class="section-box">
+    <img src="assets/images/logo2.jpg" alt="Pretheweish Das" />
+    <h2>Guidence</h2>
+<!-- SUPERVISOR & ME TABLE -->
+<div class="about-table">
 
-    <h2>Guidance</h2>
-
-    <div class="about-table">
-
-      <div class="about-row" data-aos="fade-up">
-        <div class="about-photo">
-          <img src="assets/images/A1.jpg" alt="Supervisor">
-        </div>
-        <div class="about-text">
-          <h3>🎓 Prof. Sandip Chatterjee <span class="badge">Supervisor · IIT BHU</span></h3>
-          <p>
-            Research interests include Heusler alloy, Skyrmions, 2D van der Waals magnets,
-            topological insulators, high-Tc superconductors and strongly correlated systems.
-          </p>
-        </div>
-      </div>
-
-      <div class="about-row" data-aos="fade-up" data-aos-delay="200">
-        <div class="about-photo">
-          <img src="assets/images/A2.jpg" alt="Pretheweish Das">
-        </div>
-        <div class="about-text">
-          <h3>👨‍🎓 Pretheweish Das <span class="badge student">M.Sc. Physics</span></h3>
-          <p>
-            M.Sc. Physics student at IIT BHU with interests in Condensed Matter Physics,
-            Quantum Mechanics, Electromagnetism and Mathematical Physics.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= INTEREST ================= -->
-  <section id="interest" class="interest-section">
-
-    <h2 class="interest-title">Interests</h2>
-
-    <div class="interest-toggle">
-      <button class="toggle-btn active" onclick="showResearch()">Research</button>
-      <button class="toggle-btn" onclick="showHobbies()">Hobbies</button>
+  <!-- Supervisor Row -->
+  <div class="about-row" data-aos="fade-up">
+    <div class="about-photo">
+      <img src="assets/images/A1.jpg" alt="Supervisor">
     </div>
 
-    <div id="researchBox" class="interest-box show">
-      <ul>
-        <li>Condensed Matter Physics & Superconductivity</li>
-        <li>Quantum Mechanics & Field Theory</li>
-        <li>Electromagnetism & Optics</li>
-        <li>Mathematical Physics</li>
-      </ul>
-    </div>
+    <div class="about-text">
+      <h3>
+        🎓 Prof. Sandip Chatterjee
+        <span class="badge">Supervisor · IIT BHU</span>
+      </h3>
 
-    <div id="hobbyBox" class="interest-box">
-      <ul>
-        <li>Reading Physics & Philosophy</li>
-        <li>Scientific Programming</li>
-        <li>Web Design</li>
-        <li>Stargazing</li>
-      </ul>
-    </div>
-
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects" class="section-box">
-    <h2 class="section-title">Lab Facilities</h2>
-
-    <div class="cmp-safe-zone">
-      <div class="org-chart">
-        <div class="node root">CMP Lab</div>
-        <div class="connector"></div>
-        <div class="branches">
-          <a href="instrument.html" class="node research">Lab Instruments</a>
-          <a href="cryogenic.html" class="node instrumentation">Cryogenic System</a>
-          <a href="furnace.html" class="node theory">Furnace & Arc Melting</a>
-          <a href="devices.html" class="node students">Microscopy</a>
-          <a href="cvd.html" class="node collaboration">CVD</a>
-        </div>
-      </div>
-    </div>
-
-    <p>Click any box to explore further...</p>
-  </section>
-
-  <!-- ================= PAPER & WORK ================= -->
-  <section id="my-paper" class="section-box paper-work-section">
-
-    <h2 class="section-title">My Paper and Work</h2>
-
-    <div class="paper-work-container">
-
-      <div class="paper-work-box right-box" data-aos="fade-left">
-        <h3>My Work</h3>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <h4>CVD Measurements</h4>
-              <p>Thin film growth and synthesis</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <h4>Python & Data Analysis</h4>
-              <p>BCS fitting, nodal gap models</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vertical-divider"></div>
-
-      <div class="paper-work-box left-box" data-aos="fade-right">
-        <h3>My Paper</h3>
-
-        <div class="paper-card" onclick="openPaperModal()">
-          <img src="assets/img/paper-thumb.png" alt="Paper">
-          <p>Click to view abstract</p>
-        </div>
-
-        <a href="assets/pdf/document.pdf" target="_blank" class="pdf-link">
-          📄 Download Full Paper
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= PAPER MODAL (SINGLE – FIXED) ================= -->
-  <div id="paperModal" class="paper-modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closePaperModal()">×</span>
-      <h3>Paper Abstract</h3>
       <p>
-        This work investigates low-temperature electronic specific heat of
-        unconventional superconductors using various gap symmetry models.
+        🔬 Research interests include Heusler alloy, Skyrmions, 2D van der Waals magnets, Topological Insulator,
+        High Tc Superconductors and Colossal Magneto-resistive materials, Heavy Fermion System, Critical Behavior,
+        Strong Electron Co-relations in Solids.  
+        📚 He actively guides students in experimental and theoretical physics,
+        encouraging deep scientific thinking and originality.
       </p>
     </div>
   </div>
 
-  <!-- ================= VIDEOS ================= -->
+  <!-- Me Row -->
+  <div class="about-row" data-aos="fade-up" data-aos-delay="200">
+    <div class="about-photo">
+      <img src="assets/images/A2.jpg" alt="Pretheweish Das">
+    </div>
+
+    <div class="about-text">
+      <h3>
+        👨‍🎓 Pretheweish Das
+        <span class="badge student">M.Sc. Physics</span>
+      </h3>
+
+      <p>
+        🔭 I am an M.Sc. Physics student at IIT BHU with strong interests in
+        Condensed Matter Physics ,quantum mechanics, electromagnetism, and mathematical physics.  
+      </p>
+    </div>
+  </div>
+
+</div>
+  </section>
+<!-- ===========================
+     INTEREST SECTION
+=========================== -->
+<section class="interest-section">
+
+  <h2 class="interest-title">Interests</h2>
+
+  <!-- Toggle Buttons -->
+  <div class="interest-toggle">
+
+    <!-- Research Button -->
+    <button class="toggle-btn active" onclick="showResearch()">
+      <span class="atom-wrapper">
+
+        <span class="orbit orbit-1">
+          <span class="electron"></span>
+        </span>
+
+        <span class="orbit orbit-2">
+          <span class="electron"></span>
+        </span>
+
+        <span class="orbit orbit-3">
+          <span class="electron"></span>
+        </span>
+
+        <span class="atom-core"></span>
+
+      </span>
+      Research
+    </button>
+
+    <!-- Hobbies Button -->
+    <button class="toggle-btn" onclick="showHobbies()">
+      <span class="icon hobby-icon">✨</span>
+      Hobbies
+    </button>
+
+  </div>
+
+  <!-- Research Content -->
+  <div id="researchBox" class="interest-box show">
+    <ul>
+      <li>Condensed Matter Physics & Superconductivity</li>
+      <li>Quantum Mechanics & Quantum Field Theory</li>
+      <li>Electromagnetism & Optical Phenomena</li>
+      <li>Mathematical Physics & Theoretical Modeling</li>
+    </ul>
+  </div>
+
+  <!-- Hobbies Content -->
+  <div id="hobbyBox" class="interest-box">
+    <ul>
+      <li>Reading Physics & Philosophy Books</li>
+      <li>Scientific Programming (Python, MATLAB)</li>
+      <li>Designing Scientific Web Interfaces</li>
+      <li>Stargazing & Astrophotography</li>
+    </ul>
+  </div>
+
+</section>
+
+  
+<!-- =========================
+     PROJECTS SECTION
+========================= -->
+<section id="projects" class="section-box">
+
+  <!-- HEADING (CENTER, SAME AS RESEARCH) -->
+  <h2 class="section-title" data-aos="fade-up">
+    Lab Facilities
+  </h2>
+
+  <!-- SAFE ZONE -->
+  <div class="cmp-safe-zone">
+
+    <!-- ORG CHART -->
+    <div class="org-chart">
+
+      <!-- ROOT -->
+      <div class="node root" data-aos="zoom-in">
+        CMP Lab
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="connector"></div>
+
+      <!-- BRANCHES -->
+      <div class="branches">
+
+        <a href="instrument.html"
+           class="node branch research"
+           data-aos="fade-up">
+          Lab Instrument Name
+        </a>
+
+        <a href="cryogenic.html"
+           class="node branch instrumentation"
+           data-aos="fade-up"
+           data-aos-delay="100">
+          Cryogenic System
+        </a>
+
+        <a href="furnace.html"
+           class="node branch theory"
+           data-aos="fade-up"
+           data-aos-delay="200">
+          Furnace & Arc Melting
+        </a>
+
+        <a href="devices.html"
+           class="node branch students"
+           data-aos="fade-up"
+           data-aos-delay="300">
+          Microscopy
+        </a>
+
+        <a href="cvd.html"
+           class="node branch collaboration"
+           data-aos="fade-up"
+           data-aos-delay="400">
+          CVD
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <p>Click any of this box to explore further...</p>
+  
+</section>
+
+
+
+
+
+
+  <!-- PAPER SECTION -->
+<!-- PAPER & WORK SECTION -->
+<section id="my-paper" class="section-box paper-work-section">
+
+  <h2 class="section-title">My Paper and Work</h2>
+
+  <div class="paper-work-container">
+
+    <!-- LEFT : MY WORK -->
+<div class="paper-work-box right-box" data-aos="fade-left">
+
+  <h3>My Work</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>CVD measurements</h4>
+        <p>Thin Film growth and making process</p>
+        <button onclick="window.location.href='Experiment.html'">
+        🧪 Open Experiment Logbook
+        </button>
+
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Python and Data Analysis</h4>
+        <p>BCS fitting, nodal gap models using Python,Webscapping </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h4>Numerical Simulations and Technique</h4>
+        <p>LabView,MATLAB</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vertical-divider"></div>
+
+    <!-- RIGHT : MY PAPER -->
+<div class="paper-work-box left-box" data-aos="fade-right">
+
+  <h3>My Paper</h3>
+
+  <div class="paper-card" onclick="openPaperModal()">
+    <img src="assets/img/paper-thumb.png" alt="Paper Thumbnail">
+    <p>Click to view abstract</p>
+  </div>
+
+  <a href="assets/pdf/document.pdf" target="_blank" class="pdf-link">
+    📄 Download Full Paper
+  </a>
+</div>
+
+<!-- MODAL -->
+<div id="paperModal" class="paper-modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closePaperModal()">×</span>
+    <h3>Paper Abstract</h3>
+    <p>
+      This work investigates the low-temperature electronic specific heat
+      of unconventional superconductors using various gap symmetry models.
+      Experimental data were analyzed within BCS and nodal frameworks.
+    </p>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+
+<!-- ===============================
+     PAPER MODAL (OUTSIDE GRID)
+================================= -->
+<div id="paperModal" class="paper-modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closePaperModal()">×</span>
+    <h3>Paper Abstract</h3>
+    <p>
+      This work investigates the low-temperature electronic specific heat
+      of unconventional superconductors using various gap symmetry models.
+      Experimental data were analyzed within BCS and nodal frameworks.
+    </p>
+  </div>
+</div>
+
+  <!-- VIDEO SECTION -->
   <section id="videos" class="section-box">
     <h2>My Videos</h2>
-
     <div class="video-gallery">
-
       <div class="video-card">
         <video controls>
           <source src="assets/videos/v1.mp4" type="video/mp4">
         </video>
         <h3>Seebeck Coefficient Experiment</h3>
+        <p>This video shows my experimental setup for Seebeck coefficient measurements.</p>
       </div>
 
       <div class="video-card">
         <video controls>
-          <source src="assets/videos/v2.mp4" type="video/mp4">
+          <source src="assets/videos/v2.mp4" type="video/mp4" />
         </video>
         <h3>Specific Heat Measurement</h3>
+        <p>Demonstration of low-temperature specific heat analysis using PPMS setup.</p>
       </div>
 
+      <div class="video-card">
+        <video controls>
+          <source src="superconductivity.mp4" type="video/mp4" />
+        </video>
+        <h3>Superconductivity Visualization</h3>
+        <p>Magnetic levitation and Meissner effect demonstration in a superconducting sample.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ================= USEFUL LINKS ================= -->
+  <!-- USEFUL LINKS SECTION -->
   <section id="useful-links" class="section-box">
     <h2>✨ Useful Links ✨</h2>
     <div class="links-grid">
-      <a href="https://www.iitbhu.ac.in" target="_blank">IIT BHU</a>
-      <a href="https://arxiv.org" target="_blank">arXiv</a>
-      <a href="https://journals.aps.org" target="_blank">APS Journals</a>
-      <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+      <a href="https://www.iitbhu.ac.in" target="_blank">🏛️ IIT BHU Official Website</a>
+      <a href="https://www.nature.com" target="_blank">📘 Nature Journal</a>
+      <a href="https://arxiv.org" target="_blank">📄 arXiv — Research Papers</a>
+      <a href="https://scholar.google.com" target="_blank">🔍 Google Scholar</a>
+      <a href="https://journals.aps.org/" target="_blank">📚 APS Journals</a>
+      <a href="https://physicsworld.com" target="_blank">🌎 Physics World</a>
+      <a href="https://www.desmos.com/" target="_blank">🌎 Play with graph </a>
+      <a href="https://winter.group.shef.ac.uk/orbitron/" target="_blank">🌀 Play with Atomic Orbital</a>
+      <a href="https://shad.io/MatVis/" target="_blank"> Matrix Visualization</a>
+      <a href="http://matrixmultiplication.xyz/" target="_blank"> Matrix multiplication</a>
+      <a href="https://ophysics.com/index.html" target="_blank"> ⚗️ Viewing Physics 1 </a>
+      <a href="https://phet.colorado.edu/en/simulations/filter?subjects=physics&type=html" target="_blank"> ⚗️ Viewing Physics 2  </a>
+      <a href="https://simphy.com/search" target="_blank"> ⚗️ Viewing Physics 3  </a>
+      <a href="https://www.indiabix.com/aptitude/questions-and-answers/" target="_blank"> 🧠 General Aptitude </a>
+      <a href="https://theoreticalminimum.com/" target="_blank"> Professor Susskind </a>
+    
+      
     </div>
   </section>
 
-  <!-- ================= CONTACT ================= -->
+  <!-- CONTACT SECTION -->
   <section id="contact" class="section-box">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:druma5059@gmail.com">druma5059@gmail.com</a></p>
   </section>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Pretheweish Das | Built with ❤️</p>
+    <p>© 2025 Pretheweish Das (owner) | Built with ❤️ using HTML & CSS</p>
   </footer>
 
-  <!-- ================= SCROLL TOP ================= -->
-  <button id="scrollTopBtn" title="Go to top">↑</button>
 
-  <!-- ================= SCRIPTS ================= -->
+  <!-- Scroll-to-top Button -->
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <script src="my 1.js"></script>
+  <script type="module" src="supabase-config.js"></script>
+  <script type="module" src="auth.js"></script>
+
 
 </body>
 </html>
+
+
+
