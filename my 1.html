@@ -146,16 +146,67 @@
 
 </div>
   </section>
+<!-- ===========================
+     INTEREST SECTION
+=========================== -->
+<section class="interest-section">
 
-  <!-- RESEARCH SECTION -->
-  <section id="research" class="section-box">
-    <h2>Research Interests</h2>
+  <h2 class="interest-title">Interests</h2>
+
+  <!-- Toggle Buttons -->
+  <div class="interest-toggle">
+
+    <!-- Research Button -->
+    <button class="toggle-btn active" onclick="showResearch()">
+      <span class="atom-wrapper">
+
+        <span class="orbit orbit-1">
+          <span class="electron"></span>
+        </span>
+
+        <span class="orbit orbit-2">
+          <span class="electron"></span>
+        </span>
+
+        <span class="orbit orbit-3">
+          <span class="electron"></span>
+        </span>
+
+        <span class="atom-core"></span>
+
+      </span>
+      Research
+    </button>
+
+    <!-- Hobbies Button -->
+    <button class="toggle-btn" onclick="showHobbies()">
+      <span class="icon hobby-icon">✨</span>
+      Hobbies
+    </button>
+
+  </div>
+
+  <!-- Research Content -->
+  <div id="researchBox" class="interest-box show">
     <ul>
-      <li>Condensed Matter & Superconductivity</li>
+      <li>Condensed Matter Physics & Superconductivity</li>
       <li>Quantum Mechanics & Quantum Field Theory</li>
       <li>Electromagnetism & Optical Phenomena</li>
+      <li>Mathematical Physics & Theoretical Modeling</li>
     </ul>
-  </section>
+  </div>
+
+  <!-- Hobbies Content -->
+  <div id="hobbyBox" class="interest-box">
+    <ul>
+      <li>Reading Physics & Philosophy Books</li>
+      <li>Scientific Programming (Python, MATLAB)</li>
+      <li>Designing Scientific Web Interfaces</li>
+      <li>Stargazing & Astrophotography</li>
+    </ul>
+  </div>
+
+</section>
 
   
 <!-- =========================
@@ -403,6 +454,7 @@
 
 </body>
 </html>
+
 
 
 
