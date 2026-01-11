@@ -175,6 +175,24 @@ style.innerHTML = `
 }
 `;
 document.head.appendChild(style);
+/* =====================================================
+   PART 7 — Reaserch interest section
+===================================================== */
+function showResearch() {
+  document.getElementById("researchBox").classList.add("show");
+  document.getElementById("hobbyBox").classList.remove("show");
+
+  document.querySelectorAll(".toggle-btn")[0].classList.add("active");
+  document.querySelectorAll(".toggle-btn")[1].classList.remove("active");
+}
+
+function showHobbies() {
+  document.getElementById("hobbyBox").classList.add("show");
+  document.getElementById("researchBox").classList.remove("show");
+
+  document.querySelectorAll(".toggle-btn")[1].classList.add("active");
+  document.querySelectorAll(".toggle-btn")[0].classList.remove("active");
+}
 
 
 
