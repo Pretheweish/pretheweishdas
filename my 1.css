@@ -265,74 +265,155 @@
   filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
 }
 
-/* =================================
-   INTEREST SECTION
-================================= */
+/* =====================================================
+   INTEREST SECTION – FINAL STABLE VERSION
+   Dark / Light mode compatible
+===================================================== */
+
+/* ---------- THEME VARIABLES ---------- */
+:root {
+  --interest-bg: rgba(255, 255, 255, 0.06);
+  --interest-border: rgba(0, 255, 255, 0.25);
+  --interest-glow: rgba(0, 255, 255, 0.25);
+
+  --interest-title: #ffe600;
+  --interest-text: #dffcff;
+
+  --interest-accent: #00ffd5;
+  --interest-accent-2: #6a00ff;
+}
+
+body.dark-mode {
+  --interest-bg: rgba(58, 19, 99, 0.82);
+  --interest-border: rgba(255, 255, 255, 0.25);
+  --interest-glow: rgba(0, 0, 0, 0.25);
+
+  --interest-title: #ffffff;
+  --interest-text: #ffffff;
+
+  --interest-accent: #ffdd55;
+  --interest-accent-2: #ff8800;
+}
+
+/* ---------- SECTION CONTAINER ---------- */
 .interest-section {
-  padding: 70px 20px;
-  background: radial-gradient(circle at top, #2b0a4a, #14001f);
-  border-radius: 30px;
+  width: 85%;
+  margin: 80px auto;
+  padding: 70px 35px;
+
+  background: var(--interest-bg);
+  border-radius: 28px;
+  border: 1px solid var(--interest-border);
+
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 25px var(--interest-glow);
+
   text-align: center;
-  box-shadow: 0 0 50px rgba(0, 255, 213, 0.15);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Soft animated glow (section-box compatible) */
+.interest-section::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: 10%;
+  left: -90px;
+
+  background: radial-gradient(
+    circle,
+    var(--interest-accent),
+    transparent 70%
+  );
+
+  opacity: 0.25;
+  filter: blur(10px);
+  animation: interestGlowMove 6s infinite alternate ease-in-out;
+  z-index: 0;
+}
+
+@keyframes interestGlowMove {
+  from { transform: translateY(-40px); }
+  to   { transform: translateY(90px); }
+}
+
+/* ---------- TITLE ---------- */
 .interest-title {
-  font-size: 2.6rem;
-  color: #ffffff;
-  text-shadow: 0 0 15px #00ffd5;
-  margin-bottom: 35px;
+  font-family: 'Satisfy', cursive;
+  font-size: 2.5rem;
+  color: var(--interest-title);
+  margin-bottom: 40px;
+
+  text-shadow: 0 0 12px var(--interest-accent);
+  position: relative;
+  z-index: 1;
 }
 
-/* =================================
-   TOGGLE BUTTONS
-================================= */
+/* ---------- TOGGLE BUTTONS ---------- */
 .interest-toggle {
   display: flex;
   justify-content: center;
-  gap: 25px;
-  margin-bottom: 40px;
+  gap: 24px;
+  margin-bottom: 45px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .toggle-btn {
   display: flex;
   align-items: center;
+  gap: 10px;
+
   padding: 14px 32px;
   border-radius: 35px;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--interest-border);
+
+  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(12px);
-  transition: all 0.4s ease;
+
+  font-size: 1.05rem;
+  color: var(--interest-text);
+  cursor: pointer;
+
+  transition: all 0.35s ease;
 }
 
 .toggle-btn:hover {
-  box-shadow: 0 0 20px #00ffd5;
+  box-shadow: 0 0 20px var(--interest-accent);
 }
 
 .toggle-btn.active {
-  background: linear-gradient(135deg, #00ffd5, #6a00ff);
+  background: linear-gradient(
+    135deg,
+    var(--interest-accent),
+    var(--interest-accent-2)
+  );
   color: #000;
-  box-shadow: 0 0 25px #00ffd5;
+  box-shadow: 0 0 30px var(--interest-accent);
 }
 
-/* =================================
-   CONTENT BOX
-================================= */
+/* ---------- CONTENT BOX ---------- */
 .interest-box {
-  max-width: 620px;
+  max-width: 640px;
   margin: auto;
+
   background: rgba(255, 255, 255, 0.06);
-  padding: 30px;
   border-radius: 22px;
+  padding: 30px;
+
   backdrop-filter: blur(14px);
   box-shadow: inset 0 0 15px rgba(255,255,255,0.12);
+
   opacity: 0;
   transform: translateY(20px);
   display: none;
+
   transition: all 0.6s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .interest-box.show {
@@ -349,17 +430,15 @@
 .interest-box li {
   font-size: 1.15rem;
   padding: 12px 0;
-  color: #eaeaea;
+  color: var(--interest-text);
 }
 
 .interest-box li::before {
   content: "✦ ";
-  color: #00ffd5;
+  color: var(--interest-accent);
 }
 
-/* =================================
-   ATOM SYSTEM
-================================= */
+/* ---------- ATOM SYSTEM (FIXED & STABLE) ---------- */
 .atom-wrapper {
   position: relative;
   width: 44px;
@@ -370,13 +449,12 @@
   justify-content: center;
 }
 
-/* Nucleus */
 .atom-core {
   width: 8px;
   height: 8px;
-  background: #00ffd5;
+  background: var(--interest-accent);
   border-radius: 50%;
-  box-shadow: 0 0 12px #00ffd5;
+  box-shadow: 0 0 12px var(--interest-accent);
   z-index: 3;
 }
 
@@ -385,13 +463,15 @@
   position: absolute;
   width: 44px;
   height: 44px;
-  border: 1.7px solid rgba(0, 255, 213, 0.6);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 255, 213, 0.4);
+  border: 1.6px solid var(--interest-accent);
+  box-shadow: 0 0 10px var(--interest-accent);
   opacity: 0;
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
-/* Tilted planes */
+/* Plane tilts */
 .orbit-1 { transform: rotateX(65deg); }
 .orbit-2 { transform: rotateY(65deg); }
 .orbit-3 { transform: rotateZ(65deg); }
@@ -409,7 +489,7 @@
   box-shadow: 0 0 10px #ffe600;
 }
 
-/* Animate only when active */
+/* Activate animation */
 .toggle-btn.active .orbit {
   opacity: 1;
 }
@@ -426,7 +506,7 @@
   animation: spin3 5s linear infinite;
 }
 
-/* Rotations */
+/* Rotations (NO CONFLICT) */
 @keyframes spin1 {
   from { transform: rotateX(65deg) rotate(0deg); }
   to   { transform: rotateX(65deg) rotate(360deg); }
@@ -442,11 +522,24 @@
   to   { transform: rotateZ(65deg) rotate(360deg); }
 }
 
-/* Hobby icon */
+/* ---------- HOBBY ICON ---------- */
 .hobby-icon {
   font-size: 1.4rem;
-  margin-right: 10px;
+  margin-right: 8px;
 }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .interest-section {
+    width: 94%;
+    padding: 45px 20px;
+  }
+
+  .interest-title {
+    font-size: 2.1rem;
+  }
+}
+
 
 /* ================================
    Project Section
@@ -1633,6 +1726,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
