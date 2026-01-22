@@ -194,3 +194,15 @@ function showHobbies() {
   document.querySelectorAll(".toggle-btn")[0].classList.remove("active");
 }
 
+/* =====================================================
+   PART 8 — ANNOUNCEMENT BOX
+  ===================================================== */
+  function openLink(url) {
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("close-announcement").addEventListener("click", function () {
+    document.getElementById("announcement-box").style.display = "none";
+  });
+
+
