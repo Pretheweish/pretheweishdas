@@ -228,6 +228,138 @@
   z-index: 1;
 }
 
+/* ========== Announcement ========== */
+
+#announcement-box {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.25);
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 9999;
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  font-weight: bold;
+  color: cyan;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+#close-announcement {
+  background: transparent;
+  border: none;
+  color: #ff6b6b;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.announcement-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.announcement-list li {
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.announcement-list li:hover {
+  background: rgba(0, 255, 255, 0.25);
+  transform: translateX(5px);
+}
+
+.date {
+  display: block;
+  font-size: 11px;
+  color: #ffd369;
+}
+
+.text {
+  font-size: 13px;
+  color: #ffffff;
+}
+
+/* ---------- Mobile Responsive Announcement Box ---------- */
+@media (max-width: 768px) {
+
+  #announcement-box {
+    width: calc(100% - 24px);
+    left: 12px;
+    bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 6px 22px rgba(0, 255, 255, 0.35);
+  }
+
+  .announcement-header {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  #close-announcement {
+    font-size: 18px;
+  }
+
+  .announcement-list {
+    max-height: 160px;
+    padding: 6px;
+  }
+
+  .announcement-list li {
+    padding: 10px;
+    margin-bottom: 6px;
+    transform: none;
+  }
+
+  .announcement-list li:hover {
+    transform: none; /* Mobile hover issue fix */
+    background: rgba(0, 255, 255, 0.18);
+  }
+
+  .date {
+    font-size: 10px;
+  }
+
+  .text {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+/* ---------- Extra Small Devices (Very small phones) ---------- */
+@media (max-width: 420px) {
+
+  #announcement-box {
+    bottom: 8px;
+    left: 8px;
+    border-radius: 10px;
+  }
+
+  .announcement-header span {
+    font-size: 13px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+}
+
 /* ========== ABOUT ========== */
 #about { composes: section-box; }
 #about::before {
@@ -1762,6 +1894,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
