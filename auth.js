@@ -1,22 +1,56 @@
 import { supa } from "./supabase-config.js";
 
-window.signup = async function () {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+window.userLogin = async function () {
+  authMsg.innerText = "Logging in...";
 
-  const { error } = await supa.auth.signUp({ email, password });
+  const email = userEmail.value;
+  const password = userPass.value;
 
-  if (error) alert("Signup Error: " + error.message);
-  else alert("Account created! Check your email.");
+  const { data, error } = await supa.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    authMsg.innerText = error.message;
+    return;
+  }
+
+  const user = data.user;
+
+  // OPTION B → mobile verification
+  if (!user.user_metadata?.mobile_verified) {
+    authModal.close();
+    mobileModal.showModal();
+  } else {
+    window.location.href = "dashboard.html";
+  }
 };
 
-window.login = async function () {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+window.adminLogin = async function () {
+  authMsg.innerText = "Checking admin...";
 
-  const { data, error } = await supa.auth.signInWithPassword({ email, password });
+  const email = adminEmail.value;
+  const password = adminPass.value;
 
-  if (error) alert("Login Error: " + error.message);
-  else window.location.href = "dashboard.html";
+  const { data, error } = await supa.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    authMsg.innerText = error.message;
+    return;
+  }
+
+  const role = data.user.user_metadata?.role;
+  if (role !== "admin") {
+    authMsg.innerText = "Access denied";
+    await supa.auth.signOut();
+    return;
+  }
+
+  window.location.href = "admin-dashboard.html";
 };
+
 
