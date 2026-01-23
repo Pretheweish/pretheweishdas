@@ -301,9 +301,9 @@
 
   #announcement-box {
     width: calc(100% - 24px);
-    left: 12px;
-    bottom: 12px;
-    border-radius: 12px;
+    left: 10px;
+    bottom: 10px;
+    border-radius: 10px;
     box-shadow: 0 6px 22px rgba(0, 255, 255, 0.35);
   }
 
@@ -1894,6 +1894,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
