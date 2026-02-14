@@ -111,7 +111,7 @@ async function modalUpload() {
 }
 
 // Notes Save & Load Script
-import { supa } from "./supabase-config.js";
+
 
 const notesField = document.getElementById("notesBox");
 const saveBtn = document.getElementById("saveNotes");
@@ -152,6 +152,7 @@ saveBtn.addEventListener("click", async () => {
     alert("Notes saved successfully");
   }
 });
+
 
 
 
