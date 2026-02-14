@@ -163,26 +163,38 @@ import { supabase } from "./supabase-config.js";
 const notesField = document.getElementById("notesBox");
 const saveBtn = document.getElementById("saveNotes");
 
-// Load user notes
-async function loadNotes() {
+// Page load হলে user note load
+window.addEventListener("DOMContentLoaded", async () => {
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return;
+  if (!user) {
+    console.log("No user");
+    return;
+  }
+
+  console.log("User:", user.id);
 
   const { data, error } = await supabase
     .from("user_notes")
-    .select("content")
+    .select("*")
     .eq("user_id", user.id)
     .single();
 
-  if (data) {
-    notesField.value = data.content || "";
+  if (error && error.code !== "PGRST116") {
+    console.log("Load error:", error);
   }
-}
 
-// Save notes
-saveBtn.onclick = async () => {
+  if (data) {
+    notesField.value = data.content;
+  }
+});
+
+// Save button
+saveBtn.addEventListener("click", async () => {
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return;
+  if (!user) {
+    alert("User not logged in");
+    return;
+  }
 
   const { error } = await supabase
     .from("user_notes")
@@ -193,14 +205,12 @@ saveBtn.onclick = async () => {
     });
 
   if (error) {
-    alert("Error saving notes");
+    console.log(error);
+    alert("Save failed");
   } else {
-    alert("Notes saved!");
+    alert("Notes saved successfully");
   }
-};
-
-// Load when page opens
-loadNotes();
+});
 </script>
 
 
@@ -216,4 +226,5 @@ loadNotes();
   <script type="module" src="dashboard.js"></script>
 </body>
 </html>
+
 
