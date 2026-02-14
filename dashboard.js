@@ -110,5 +110,49 @@ async function modalUpload() {
   }
 }
 
+// Notes Save & Load Script
+import { supa } from "./supabase-config.js";
+
+const notesField = document.getElementById("notesBox");
+const saveBtn = document.getElementById("saveNotes");
+
+// Load notes
+window.addEventListener("DOMContentLoaded", async () => {
+  const { data: { user } } = await supa.auth.getUser();
+  if (!user) return;
+
+  const { data } = await supa
+    .from("user_notes")
+    .select("content")
+    .eq("user_id", user.id)
+    .single();
+
+  if (data) notesField.value = data.content;
+});
+
+// Save
+saveBtn.addEventListener("click", async () => {
+  const { data: { user } } = await supa.auth.getUser();
+  if (!user) {
+    alert("User not logged in");
+    return;
+  }
+
+  const { error } = await supa
+    .from("user_notes")
+    .upsert({
+      user_id: user.id,
+      content: notesField.value
+    });
+
+  if (error) {
+    console.log(error);
+    alert("Save failed");
+  } else {
+    alert("Notes saved successfully");
+  }
+});
+
+
 
 
