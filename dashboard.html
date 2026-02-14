@@ -157,14 +157,14 @@
 </div>
   <!-- Notes Save & Load Script -->
 <script>  
-import { supabase } from "./supabase-config.js";
+import { supa } from "./supabase-config.js";
 
 const notesField = document.getElementById("notesBox");
 const saveBtn = document.getElementById("saveNotes");
 
 // Page load হলে user note load
 window.addEventListener("DOMContentLoaded", async () => {
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user } } = await supa.auth.getUser();
   if (!user) {
     console.log("No user");
     return;
@@ -172,7 +172,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   console.log("User:", user.id);
 
-  const { data, error } = await supabase
+  const { data, error } = await supa
     .from("user_notes")
     .select("*")
     .eq("user_id", user.id)
@@ -189,13 +189,13 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 // Save button
 saveBtn.addEventListener("click", async () => {
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user } } = await supa.auth.getUser();
   if (!user) {
     alert("User not logged in");
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await supa
     .from("user_notes")
     .upsert({
       user_id: user.id,
@@ -219,6 +219,7 @@ saveBtn.addEventListener("click", async () => {
   <script type="module" src="dashboard.js"></script>
 </body>
 </html>
+
 
 
 
