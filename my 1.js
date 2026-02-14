@@ -204,5 +204,10 @@ function showHobbies() {
   document.getElementById("close-announcement").addEventListener("click", function () {
     document.getElementById("announcement-box").style.display = "none";
   });
+function toggleLinks() {
+  document.getElementById("mobileLinksPanel")
+          .classList.toggle("open");
+}
+
 
 
