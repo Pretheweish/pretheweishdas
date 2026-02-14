@@ -156,19 +156,53 @@
 
 </div>
   <!-- Notes Save & Load Script -->
-  <script>
-    const notesField = document.getElementById("notesBox");
-    const saveBtn = document.getElementById("saveNotes");
+  
+<script type="module">
+import { supabase } from "./supabase-config.js";
 
-    // Load saved note
-    notesField.value = localStorage.getItem("dashboard_notes") || "";
+const notesField = document.getElementById("notesBox");
+const saveBtn = document.getElementById("saveNotes");
 
-    // Save note
-    saveBtn.onclick = () => {
-        localStorage.setItem("dashboard_notes", notesField.value);
-        alert("Notes Saved Successfully!");
-    };
-  </script>
+// Load user notes
+async function loadNotes() {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const { data, error } = await supabase
+    .from("user_notes")
+    .select("content")
+    .eq("user_id", user.id)
+    .single();
+
+  if (data) {
+    notesField.value = data.content || "";
+  }
+}
+
+// Save notes
+saveBtn.onclick = async () => {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const { error } = await supabase
+    .from("user_notes")
+    .upsert({
+      user_id: user.id,
+      content: notesField.value,
+      updated_at: new Date()
+    });
+
+  if (error) {
+    alert("Error saving notes");
+  } else {
+    alert("Notes saved!");
+  }
+};
+
+// Load when page opens
+loadNotes();
+</script>
+
 
   <!-- Supabase & app scripts -->
   <script type="module" src="supabase-config.js"></script>
@@ -182,3 +216,4 @@
   <script type="module" src="dashboard.js"></script>
 </body>
 </html>
+
