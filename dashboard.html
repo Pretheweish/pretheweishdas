@@ -155,70 +155,13 @@
   </div>
 
 </div>
-  <!-- Notes Save & Load Script -->
-<script>  
-import { supa } from "./supabase-config.js";
-
-const notesField = document.getElementById("notesBox");
-const saveBtn = document.getElementById("saveNotes");
-
-// Page load হলে user note load
-window.addEventListener("DOMContentLoaded", async () => {
-  const { data: { user } } = await supa.auth.getUser();
-  if (!user) {
-    console.log("No user");
-    return;
-  }
-
-  console.log("User:", user.id);
-
-  const { data, error } = await supa
-    .from("user_notes")
-    .select("*")
-    .eq("user_id", user.id)
-    .single();
-
-  if (error && error.code !== "PGRST116") {
-    console.log("Load error:", error);
-  }
-
-  if (data) {
-    notesField.value = data.content;
-  }
-});
-
-// Save button
-saveBtn.addEventListener("click", async () => {
-  const { data: { user } } = await supa.auth.getUser();
-  if (!user) {
-    alert("User not logged in");
-    return;
-  }
-
-  const { error } = await supa
-    .from("user_notes")
-    .upsert({
-      user_id: user.id,
-      content: notesField.value,
-      updated_at: new Date()
-    });
-
-  if (error) {
-    console.log(error);
-    alert("Save failed");
-  } else {
-    alert("Notes saved successfully");
-  }
-});
-</script>
-
-
-
+  
   <!-- Supabase & app scripts -->
   <script type="module" src="supabase-config.js"></script>
   <script type="module" src="dashboard.js"></script>
 </body>
 </html>
+
 
 
 
