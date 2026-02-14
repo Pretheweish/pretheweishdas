@@ -90,7 +90,7 @@ ul{padding-left:18px}
 
 </div>
 
-<!-- Supabase Script -->
+<!-- Supabase Logic -->
 <script type="module">
 import { supa } from "./supabase-config.js";
 
@@ -103,7 +103,7 @@ window.addEventListener("load", async () => {
   const { data } = await supa.auth.getSession();
 
   if (!data.session) {
-    window.location.href = SITE_URL;
+    window.location.replace(SITE_URL);
     return;
   }
 
@@ -117,8 +117,10 @@ window.addEventListener("load", async () => {
 // ==========================
 // NAVIGATION
 // ==========================
+
+// Open homepage in NEW TAB (fix redirect loop)
 window.goHome = function () {
-  window.location.href = SITE_URL;
+  window.open(SITE_URL, "_blank");
 };
 
 
@@ -127,7 +129,7 @@ window.goHome = function () {
 // ==========================
 window.logout = async function () {
   await supa.auth.signOut();
-  window.location.href = SITE_URL;
+  window.location.replace(SITE_URL);
 };
 
 
