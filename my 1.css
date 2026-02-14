@@ -423,8 +423,8 @@ body.dark-mode {
   --interest-title: #ffffff;
   --interest-text: #ffffff;
 
-  --interest-accent: #ffdd55;
-  --interest-accent-2: #ff8800;
+  --interest-accent: #00ff5eb4;
+  --interest-accent-2: #c419eb9f;
 }
 
 /* ---------- SECTION CONTAINER ---------- */
@@ -1894,6 +1894,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
