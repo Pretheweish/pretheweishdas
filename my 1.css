@@ -1187,99 +1187,16 @@ USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
   color: black;
 }
 
-/* ===== Mobile Floating Button ===== */
-.mobile-links-btn {
-  position: fixed;
-  right: 0;
-  top: 40%;
-  background: #00ffff;
-  color: #111;
-  padding: 12px 10px;
-  font-weight: bold;
-  border-radius: 10px 0 0 10px;
-  cursor: pointer;
-  z-index: 9999;
-  display: none;
-  box-shadow: 0 0 15px #00ffff;
-}
-
-/* ===== Sidebar Panel ===== */
-.mobile-links-panel {
-  position: fixed;
-  right: -260px;
-  top: 0;
-  width: 260px;
-  height: 100%;
-  background: #07131f;
-  box-shadow: -5px 0 20px rgba(0,255,255,0.3);
-  padding: 20px;
-  transition: right 0.4s ease;
-  z-index: 10000;
-  overflow-y: auto;
-}
-
-.mobile-links-panel.open {
-  right: 0;
-}
-
-.mobile-links-panel h3 {
-  color: #ffe100;
-  margin-bottom: 20px;
-}
-
-.mobile-links-panel a {
-  display: block;
-  padding: 12px;
-  margin-bottom: 10px;
-  color: #00ffff;
-  text-decoration: none;
-  border: 1px solid rgba(0,255,255,0.3);
-  border-radius: 10px;
-}
-
-.mobile-links-panel a:hover {
-  background: #00ffff;
-  color: #111;
-}
-
-.close-btn {
-  font-size: 22px;
-  cursor: pointer;
-  float: right;
-  color: #fff;
-}
-
-/* Hide mobile sidebar by default */
-.mobile-links-btn {
-  display: none;
-}
-
-.mobile-links-panel {
-  display: none;
-}
-
-/* Mobile only */
+/* Show only on mobile */
 @media (max-width: 768px) {
-
   .mobile-links-btn {
-    display: block;
-    position: fixed;
-    right: 0;
-    top: 40%;
-    background: #00ffff;
-    padding: 10px;
-    z-index: 9999;
-  }
-
-  .mobile-links-panel {
     display: block;
   }
 
   #useful-links {
-    display: none;
+    display: none; /* hide original section on mobile */
   }
 }
-
 
 
 /* ============================================================
@@ -1959,6 +1876,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
