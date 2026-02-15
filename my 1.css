@@ -1187,16 +1187,44 @@ USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
   color: black;
 }
 
-/* Show only on mobile */
-@media (max-width: 768px) {
-  .mobile-links-btn {
-    display: block;
+/* Small screens (Useful Links section */
+@media (max-width: 600px) {
+
+  #useful-links h2 {
+    font-size: 2rem;
   }
 
-  #useful-links {
-    display: none; /* hide original section on mobile */
+  .links-grid a {
+    font-size: 1rem;
+    padding: 10px 18px;
   }
+
 }
+
+
+/* Responsive fixes for section-box */
+@media (max-width: 600px) {
+
+  .section-box {
+    width: 92%;
+    padding: 35px 20px;
+  }
+
+  .section-box h2 {
+    font-size: 2rem;
+  }
+
+  .section-box p {
+    width: 95%;
+    font-size: 1rem;
+  }
+
+  .section-box img {
+    width: 180px;
+  }
+
+}
+
 
 
 /* ============================================================
@@ -1876,6 +1904,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
