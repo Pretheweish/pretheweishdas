@@ -1111,7 +1111,7 @@ body.dark-mode {
 
 
 /* ======================================================== 
-USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
+   USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
    Fully compatible with existing section-box system
 =========================================================== */
 
@@ -1128,7 +1128,7 @@ USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
   left: -60px;
   background: radial-gradient(
     circle,
-    rgba(0,255,255,0.35),
+    rgba(0, 255, 255, 0.35),
     transparent 70%
   );
   animation: sectionGlow 6s infinite alternate ease-in-out;
@@ -1139,7 +1139,7 @@ USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
 #useful-links h2 {
   font-family: 'Satisfy', cursive;
   font-size: 2.4rem;
-  color:  #ffe100;
+  color: #ffe100;
   text-shadow: 0 0 10px #00ffff,
                0 0 30px #00e1ff;
   margin-bottom: 30px;
@@ -1187,9 +1187,8 @@ USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
   color: black;
 }
 
-/* Small screens (Useful Links section */
+/* Small screens */
 @media (max-width: 600px) {
-
   #useful-links h2 {
     font-size: 2rem;
   }
@@ -1198,13 +1197,10 @@ USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
     font-size: 1rem;
     padding: 10px 18px;
   }
-
 }
 
-
-/* Responsive fixes for section-box */
+/* Responsive section fixes */
 @media (max-width: 600px) {
-
   .section-box {
     width: 92%;
     padding: 35px 20px;
@@ -1222,10 +1218,7 @@ USEFUL LINKS - CLEAN, UNIFIED, FUTURE-PROOF
   .section-box img {
     width: 180px;
   }
-
 }
-
-
 
 /* ============================================================
    PART–2 : BACKGROUND • ANNOUNCEMENT • THEME BUTTONS • VIDEO • FOOTER
@@ -1904,6 +1897,7 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
+
 
 
 
