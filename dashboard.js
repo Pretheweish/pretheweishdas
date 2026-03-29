@@ -97,8 +97,8 @@ async function modalUpload() {
 
   const filePath = `${user.id}/${Date.now()}_${file.name}`;
 
-  let { data, error } = await supabase.storage
-    .from("user-documents")
+  let { data, error } = await supa.storage
+    .from("userfiles")
     .upload(filePath, file);
 
   if (error) {
